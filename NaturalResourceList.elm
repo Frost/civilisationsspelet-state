@@ -11,10 +11,12 @@ addResource resource player =
     let newResources = player.resources ++ [resource] in
       {player | resources = newResources}
 
+
 removeResource : NaturalResource -> Player -> Player
 removeResource resource player =
     let newResources = List.filter (\r -> r /= resource) player.resources in
       {player | resources = newResources}
+
 
 view : Player -> Html Msg
 view player =
