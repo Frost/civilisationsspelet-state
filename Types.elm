@@ -39,4 +39,6 @@ type alias Technology = { name : String
 
 type Msg = AddResource NaturalResource
          | RemoveResource NaturalResource
+         | AddTechnology Technology
+         | RemoveTechnology Technology
          | Noop

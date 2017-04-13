@@ -29,6 +29,10 @@ update msg model =
             NaturalResourceList.addResource resource model
         RemoveResource resource ->
             NaturalResourceList.removeResource resource model
+        AddTechnology technology ->
+            TechnologyList.addTechnology technology model
+        RemoveTechnology technology ->
+            TechnologyList.removeTechnology technology model
         _ ->
             model
 
