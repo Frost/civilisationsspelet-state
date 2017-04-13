@@ -33,10 +33,13 @@ type alias NaturalResource = { name : String
                              , produce : List Produce
                              }
 
+type alias Player = { resources : List NaturalResource
+                    , resourceTypes : List ResourceType
+                    }
 
 type alias Score = Int
 type Msg = Noop
-type alias Model = Int
+type alias Model = Player
 
 resources : List NaturalResource
 resources =
@@ -89,11 +92,9 @@ climateZones = [ (TemperedDry, "Tempererat torrt")
                ]
 
 initialModel : Model
-initialModel = 0
-
-type alias Player = { resources : List NaturalResource
-                    , resourceTypes : List ResourceType
-                    }
+initialModel = { resources = resources
+               , resourceTypes = [ Protein, Carbohydrate ]
+               }
 
 -- UPDATE
 
@@ -113,7 +114,7 @@ view model =
                     ]
               ]
         , tbody []
-            (( output resources [Carbohydrate, Protein] climateZoneTypes )
+            (( output model climateZoneTypes )
             |> List.map climateZoneOutputView)
         ]
     -- text (toString (outputByZone resources [ Carbohydrate, Protein ] SubTropicMedium))
@@ -127,15 +128,16 @@ climateZoneOutputView (zoneType, value) =
 
 
 -- Sum all available resources for all climate zones
-output : List NaturalResource -> List ResourceType -> List ClimateZoneType -> List Produce
-output resources resourceTypes zones =
-    List.map (outputByClimateZone resources resourceTypes) zones
+-- output : List NaturalResource -> List ResourceType -> List ClimateZoneType -> List Produce
+output : Player -> List ClimateZoneType -> List Produce
+output player zones =
+    List.map (outputByClimateZone player) zones
 
 
 -- Sum available resources in a specific climate zone
-outputByClimateZone : List NaturalResource -> List ResourceType -> ClimateZoneType -> Produce
-outputByClimateZone resources availableTypes zone =
-    (zone, List.foldr (\t acc -> acc + outputByResourceType resources t zone) 0.0 availableTypes)
+outputByClimateZone : Player -> ClimateZoneType -> Produce
+outputByClimateZone player zone =
+    (zone, List.foldr (\t acc -> acc + outputByResourceType player.resources t zone) 0.0 player.resourceTypes)
 
 
 -- outputs the maximum output for one resource type in a specific climate zone from a list of resources
