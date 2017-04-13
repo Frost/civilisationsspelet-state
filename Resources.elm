@@ -35,7 +35,41 @@ resources =
             , (SubTropicMedium, 1)
             ]
       }
+    , { name = "Kamel"
+      , types = [ Muscle, Textile ]
+      , produce =
+            [ (SubTropicDry, 1.5)
+            ]
+      }
+    , { name = "Elefant"
+      , types = [ Muscle ]
+      , produce =
+            [ (TropicMedium, 1.5)
+            , (TropicDry, 1.5)
+            ]
+      }
+    , { name = "Får"
+      , types = [ Textile, Protein ]
+      , produce =
+            [ (TropicDry, 0.5)
+            , (SubTropicMedium, 0.5)
+            , (TemperedDry, 1)
+            , (TemperedMedium, 1)
+            , (TemperedHumid, 1)
+            ]
+      }
+    , { name = "Häst"
+      , types = [ Muscle, Protein ]
+      , produce =
+            [ (TropicDry, 1)
+            , (SubTropicMedium, 1)
+            , (SubTropicDry, 0.5)
+            , (TemperedHumid, 0.5)
+            , (TemperedDry, 1.5)
+            ]
+      }
     ]
+
 
 climateZoneTypes : List ClimateZoneType
 climateZoneTypes = [ TemperedDry
