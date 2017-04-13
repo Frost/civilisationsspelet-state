@@ -47,21 +47,26 @@ outputByResourceType resources resourceType zone =
 
 -- find the output of one climate zone in one resource
 outputByZone : NaturalResource -> ClimateZoneType -> Float
-outputByZone resource zone = List.foldr (\(z, value) acc -> if z == zone then value else acc) 0.0 resource.produce
+outputByZone resource zone =
+    List.foldr (\(z, value) acc -> if z == zone then value else acc) 0.0 resource.produce
 
--- resourcesByType : List NaturalResource -> ResourceType -> List NaturalResource
--- resourcesByType resources resourceType = List.filter (\r -> List.member resourceType r.types) resources
 
 -- find all resources that produce a resourceType
 resourcesByType : List NaturalResource -> ResourceType -> List NaturalResource
-resourcesByType resources resourceType = List.filterMap (hasResourceType resourceType) resources
+resourcesByType resources resourceType =
+    List.filterMap (hasResourceType resourceType) resources
 
+
+-- Check if a NaturalResource provides a specific ResourceType
+hasResourceType : ResourceType -> NaturalResource -> Maybe NaturalResource
 hasResourceType resourceType resource =
     if List.member resourceType resource.types then
         Just resource
     else
         Nothing
 
+
+-- Find the nice output for a climate zone
 zoneTranslation : ClimateZoneType -> String
 zoneTranslation zoneType =
     case List.filter (\(zt, translation) -> zoneType == zt) climateZones |> List.head of
@@ -69,4 +74,3 @@ zoneTranslation zoneType =
             ""
         Just (zt, translation) ->
             translation
-
