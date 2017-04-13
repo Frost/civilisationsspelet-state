@@ -27,6 +27,14 @@ resources =
           , (TemperedHumid, 1.5)
           ]
       }
+    , { name = "Bomull"
+      , types = [ Textile ]
+      , produce =
+            [ (TropicMedium, 1.5)
+            , (TropicDry, 0.5)
+            , (SubTropicMedium, 1)
+            ]
+      }
     ]
 
 climateZoneTypes : List ClimateZoneType
