@@ -15,7 +15,7 @@ main = Html.beginnerProgram
 
 
 initialModel : Model
-initialModel = { resources = resources
+initialModel = { resources = []
                , resourceTypes = [ Protein, Carbohydrate ]
                , technologies = []
                }
@@ -23,7 +23,14 @@ initialModel = { resources = resources
 -- UPDATE
 
 update : Msg -> Model -> Model
-update _ model = model
+update msg model =
+    case msg of
+        AddResource resource ->
+            NaturalResourceList.addResource resource model
+        RemoveResource resource ->
+            NaturalResourceList.removeResource resource model
+        _ ->
+            model
 
 
 -- VIEW

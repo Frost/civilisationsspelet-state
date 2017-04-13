@@ -15,8 +15,6 @@ type ClimateZoneType = TemperedDry
                      | TropicMedium
                      | TropicHumid
 
-type Msg = Noop
-
 type alias ClimateZone = (ClimateZoneType, String)
 
 type alias Produce = ( ClimateZoneType, Float )
@@ -38,3 +36,7 @@ type alias Technology = { name : String
                         , id : String
                         , description : String
                         }
+
+type Msg = AddResource NaturalResource
+         | RemoveResource NaturalResource
+         | Noop
