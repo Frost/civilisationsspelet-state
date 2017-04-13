@@ -1,9 +1,12 @@
+module Civilisationsspelet exposing (main)
+
 import Html exposing (Html, body)
 import Types exposing (..)
 import Resources exposing (resources)
 import ProductionOutput
 import NaturalResourceList
 import TechnologyList
+import Player
 
 main = Html.beginnerProgram
        { model = initialModel
@@ -15,10 +18,7 @@ main = Html.beginnerProgram
 
 
 initialModel : Model
-initialModel = { resources = []
-               , resourceTypes = [ Protein, Carbohydrate ]
-               , technologies = []
-               }
+initialModel = Player.newPlayer
 
 -- UPDATE
 
@@ -27,12 +27,16 @@ update msg model =
     case msg of
         AddResource resource ->
             NaturalResourceList.addResource resource model
+            |> Player.updatePlayer
         RemoveResource resource ->
             NaturalResourceList.removeResource resource model
+            |> Player.updatePlayer
         AddTechnology technology ->
             TechnologyList.addTechnology technology model
+            |> Player.updatePlayer
         RemoveTechnology technology ->
             TechnologyList.removeTechnology technology model
+            |> Player.updatePlayer
         _ ->
             model
 
