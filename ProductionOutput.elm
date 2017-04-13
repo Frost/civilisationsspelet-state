@@ -1,21 +1,25 @@
-module ProductionOutput exposing (productionOutputTable)
+module ProductionOutput exposing (view)
 
 import Types exposing (..)
 import Resources exposing (..)
-import Html exposing (Html, table, thead, tbody, tr, th, td, text)
+import Html exposing (Html, table, thead, tbody, tr, th, td, text, section, h1)
 
-productionOutputTable : Player -> Html Msg
-productionOutputTable player =
-    table []
-        [ thead []
-              [ tr []
-                    [ th [] [ text "Klimatzon" ]
-                    , th [] [ text "Produktion" ]
-                    ]
-              ]
-        , tbody []
-            (List.map climateZoneOutputView <| output player)
+view : Player -> Html Msg
+view player =
+    section []
+        [ h1 [] [ text "Produktion" ]
+        ,  table []
+            [ thead []
+                  [ tr []
+                        [ th [] [ text "Klimatzon" ]
+                        , th [] [ text "Produktion" ]
+                        ]
+                  ]
+            , tbody []
+                (List.map climateZoneOutputView <| output player)
+            ]
         ]
+
 -- Render output for a climate zone
 climateZoneOutputView : Produce -> Html Msg
 climateZoneOutputView (zoneType, value) =

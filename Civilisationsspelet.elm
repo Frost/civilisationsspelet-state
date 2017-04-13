@@ -1,8 +1,9 @@
-import Html exposing (Html)
-import Dict exposing (Dict)
+import Html exposing (Html, body)
 import Types exposing (..)
-import Resources exposing (..)
-import ProductionOutput exposing (productionOutputTable)
+import Resources exposing (resources)
+import ProductionOutput
+import NaturalResourceList
+import TechnologyList
 
 main = Html.beginnerProgram
        { model = initialModel
@@ -16,6 +17,7 @@ main = Html.beginnerProgram
 initialModel : Model
 initialModel = { resources = resources
                , resourceTypes = [ Protein, Carbohydrate ]
+               , technologies = []
                }
 
 -- UPDATE
@@ -28,4 +30,8 @@ update _ model = model
 
 view : Model -> Html Msg
 view model =
-    productionOutputTable model
+    body []
+        [ ProductionOutput.view model
+        , NaturalResourceList.view model
+        , TechnologyList.view model
+        ]

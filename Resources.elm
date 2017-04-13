@@ -52,3 +52,14 @@ climateZones = [ (TemperedDry, "Tempererat torrt")
                , (TropicMedium, "Tropiskt medel")
                , (TropicHumid, "Tropiskt fuktigt")
                ]
+
+technologies : List Technology
+technologies = [ { name = "Hjulet"
+                 , id = "wheel"
+                 , description = "Möjlighet att använda Muskelkraft"
+                 }
+               , { name = "Vävning"
+                 , id = "weaving"
+                 , description = "Möjlighet att använda Textil"
+                 }
+               ]
