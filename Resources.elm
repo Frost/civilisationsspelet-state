@@ -19,6 +19,176 @@ resources =
           , ( SubTropicHumid, 2.5 )
           ]
       }
+    , { name = "Rörsocker"
+      , types = [ Carbohydrate ]
+      , produce =
+          [ (TropicHumid, 1)
+          , (TropicMedium, 2)
+          , (SubTropicMedium, 1)
+          ]
+      }
+    , { name = "Majs"
+      , types = [ Carbohydrate ]
+      , produce =
+          [ (SubTropicMedium, 2)
+          , (SubTropicHumid, 1.5)
+          ]
+      }
+    , { name = "Potatis"
+      , types = [ Carbohydrate ]
+      , produce =
+          [ (SubTropicHumid, 2)
+          , (TemperedHumid, 2)
+          , (TemperedMedium, 1)
+          ]
+      }
+    , { name = "Havre"
+      , types = [ Carbohydrate ]
+      , produce =
+          [ (SubTropicMedium, 1.5)
+          , (TemperedHumid, 1)
+          , (TemperedMedium, 1)
+          ]
+      }
+    , { name = "Kassava"
+      , types = [ Carbohydrate ]
+      , produce =
+          [ (TropicHumid, 1)
+          , (TropicMedium, 1.5)
+          ]
+      }
+    , { name = "Råg"
+      , types = [ Carbohydrate ]
+      , produce =
+          [ (TemperedMedium, 1.5)
+          , (TemperedHumid, 0.5)
+          , (TemperedDry, 0.5)
+          ]
+      }
+    , { name = "Durra"
+      , types = [ Carbohydrate ]
+      , produce =
+          [ (TropicMedium, 1.5)
+          , (SubTropicHumid, 1)
+          ]
+      }
+    , { name = "Jams"
+      , types = [ Carbohydrate ]
+      , produce =
+          [ (TropicHumid, 1.5)
+          , (TropicMedium, 1)
+          ]
+      }
+    , { name = "Hirs"
+      , types = [ Carbohydrate ]
+      , produce =
+          [ (TropicDry, 1.5)
+          , (SubTropicMedium, 0.5)
+          ]
+      }
+    , { name = "Lin"
+      , types = [ Textile ]
+      , produce =
+          [ (SubTropicMedium, 1)
+          , (TemperedHumid, 1.5)
+          , (TemperedMedium, 1)
+          ]
+      }
+    , { name = "Hampa"
+      , types = [ Textile ]
+      , produce =
+          [ (TropicHumid, 1)
+          , (SubTropicHumid, 1)
+          , (TemperedHumid, 1)
+          ]
+      }
+    , { name = "Silke"
+      , types = [ Textile ]
+      , produce =
+          [ (SubTropicHumid, 1.5)
+          , (SubTropicMedium, 0.5)
+          ]
+      }
+    , { name = "Jute"
+      , types = [ Textile ]
+      , produce =
+          [ (TropicHumid, 1)
+          , (TropicMedium, 1)
+          , (SubTropicHumid, 1)
+          ]
+      }
+    , { name = "Kikärter"
+      , types = [ Protein ]
+      , produce =
+          [ (SubTropicHumid, 1)
+          , (SubTropicMedium, 1.5)
+          ]
+      }
+    , { name = "Sojabönor"
+      , types = [ Protein ]
+      , produce =
+          [ (TropicMedium, 1)
+          , (SubTropicHumid, 1.5)
+          ]
+      }
+    , { name = "Nöt"
+      , types = [ Protein, Muscle ]
+      , produce =
+          [ (TropicDry, 0.5)
+          , (SubTropicHumid, 0.5)
+          , (SubTropicHumid, 0.5)
+          , (SubTropicMedium, 1)
+          , (TemperedHumid, 1)
+          , (TemperedMedium, 1)
+          ]
+      }
+    , { name = "Svin"
+      , types = [ Protein ]
+      , produce =
+          [ (TropicHumid, 1.5)
+          , (TropicMedium, 1)
+          , (SubTropicHumid, 1)
+          , (SubTropicMedium, 1)
+          , (TemperedHumid, 1)
+          , (TemperedMedium, 1)
+          ]
+      }
+    , { name = "Höns"
+      , types = [ Protein ]
+      , produce =
+            [ (TropicHumid, 1)
+            , (TropicMedium, 1.5)
+            , (SubTropicHumid, 1)
+            , (SubTropicMedium, 1)
+            , (TemperedHumid, 1)
+            , (TemperedMedium, 1)
+            ]
+      }
+    , { name = "Vattenbuffel"
+      , types = [ Muscle, Protein ]
+      , produce =
+          [ (TropicHumid, 0.5)
+          , (TropicMedium, 1)
+          , (SubTropicHumid, 1)
+          , (SubTropicMedium, 0.5)
+          ]
+      }
+    , { name = "Llama"
+      , types = [ Textile, Muscle]
+      , produce =
+          [ (SubTropicHumid, 1)
+          , (SubTropicDry, 0.5)
+          ]
+      }
+    , { name = "Åsna"
+      , types = [ Muscle ]
+      , produce =
+          [ (TropicMedium, 1)
+          , (TropicDry, 1)
+          , (SubTropicHumid, 1)
+          , (SubTropicMedium, 1.5)
+          ]
+      }
     , { name = "Bönor"
       , types = [ Protein ]
       , produce =
