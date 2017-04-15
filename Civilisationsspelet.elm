@@ -1,6 +1,7 @@
 module Civilisationsspelet exposing (main)
 
-import Html exposing (Html, body)
+import Html exposing (Html, div)
+import Html.Attributes exposing (style)
 import Types exposing (..)
 import Resources exposing (resources)
 import ProductionOutput
@@ -45,7 +46,7 @@ update msg model =
 
 view : Model -> Html Msg
 view model =
-    body []
+    div [ style [("display", "flex"), ("flex-direction", "row") ] ]
         [ ProductionOutput.view model
         , NaturalResourceList.view model
         , TechnologyList.view model
