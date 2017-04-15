@@ -274,4 +274,20 @@ technologies = [ { name = "Hjulet"
                  , description = "Möjlighet att använda Textil"
                  , effects = [ EnableResourceType Textile ]
                  }
+               , { name = "Prästerskap"
+                 , description = "Civilisering + 1"
+                 , effects = [ CivilizationBonus 1 ]
+                 }
+               , { name = "Metallredskap"
+                 , description = "Fördel + 1"
+                 , effects = [ MilitaryBonus 1 ]
+                 }
+               , { name = "Konstbevattning"
+                 , description = "Överskott + 1 i områden med en flod"
+                 , effects = [] -- TODO: Implement
+                 }
+               , { name = "Skrivkonst"
+                 , description = "1 rabatt på teknologier som en civilisation du är i kontakt med känner till"
+                 , effects = [] -- TODO: Implement
+                 }
                ]
