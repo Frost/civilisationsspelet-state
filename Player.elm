@@ -1,6 +1,6 @@
 module Player exposing (newPlayer, updatePlayer)
 
-import Types exposing (Player, Technology, NaturalResource, ResourceType)
+import Types exposing (..)
 
 newPlayer = { resources = []
             , resourceTypes = baseTypes
@@ -11,22 +11,32 @@ updatePlayer : Player -> Player
 updatePlayer player =
     { player | resourceTypes = resourceTypes player}
 
-resourceTypes : Player -> List ResourceType
-resourceTypes player =
-    List.foldr addResourceTypeByTechnology baseTypes player.technologies
+
+-- Private functions
 
 baseTypes : List ResourceType
 baseTypes = [ Types.Protein, Types.Carbohydrate ]
 
--- add Textile if techlonogy is "weaving"
--- add Muscle if techlonogy is "wheel"
-addResourceTypeByTechnology : Technology -> List ResourceType -> List ResourceType
-addResourceTypeByTechnology technology types =
-    case technology.id of
-        "wheel" ->
-            types ++ [Types.Muscle]
-        "weaving" ->
-            types ++ [Types.Textile]
-        _ ->
-            types
 
+resourceTypes : Player -> List ResourceType
+resourceTypes player =
+    baseTypes ++ resourceTypesFromTechnology player
+
+
+resourceTypesFromTechnology : Player -> List ResourceType
+resourceTypesFromTechnology player =
+    List.filterMap addResourceTypeByEffect <| technologyEffects player
+
+
+technologyEffects : Player -> List TechnologyEffect
+technologyEffects player =
+    List.concatMap (\tech -> tech.effects) player.technologies
+
+
+addResourceTypeByEffect : TechnologyEffect -> Maybe ResourceType
+addResourceTypeByEffect effect =
+    case effect of
+        EnableResourceType resourceType ->
+            Just resourceType
+        _ ->
+            Nothing

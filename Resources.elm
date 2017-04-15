@@ -267,11 +267,11 @@ climateZones = [ (TemperedDry, "Tempererat torrt")
 
 technologies : List Technology
 technologies = [ { name = "Hjulet"
-                 , id = "wheel"
                  , description = "Möjlighet att använda Muskelkraft"
+                 , effects = [ EnableResourceType Muscle ]
                  }
                , { name = "Vävning"
-                 , id = "weaving"
                  , description = "Möjlighet att använda Textil"
+                 , effects = [ EnableResourceType Textile ]
                  }
                ]
