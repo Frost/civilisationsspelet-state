@@ -316,3 +316,31 @@ technologyDisplayData =
     , (Wheel, "Hjulet", "Överskott från muskelkraft")
     , (Writing, "Skrivkonst", "1 rabatt på teknologier som en civilisation du är i kontakt med känner till.")
     ]
+
+
+zoneColors : List ClimateZone
+zoneColors = [(TropicHumid, "#a10207")
+             , (TropicMedium, "#fa0607")
+             , (TropicDry, "#fdb2a7")
+             , (SubTropicHumid, "#ff7100")
+             , (SubTropicMedium, "#fff911")
+             , (SubTropicDry, "#fff87d")
+             , (TemperedHumid, "#0c6d16")
+             , (TemperedMedium, "#0fb700")
+             , (TemperedDry, "#9cfc8e")
+             ]
+
+zoneColor : ClimateZoneType -> String
+zoneColor zoneType =
+    case List.head <| List.filterMap (colorByZone zoneType) zoneColors of
+        Just color ->
+            color
+        Nothing ->
+            ""
+
+colorByZone : ClimateZoneType -> ClimateZone -> Maybe String
+colorByZone zoneType (zt, color) =
+    if zt == zoneType then
+        Just color
+    else
+        Nothing
