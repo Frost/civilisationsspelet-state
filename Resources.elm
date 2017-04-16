@@ -5,6 +5,7 @@ import Types exposing (..)
 resources : List NaturalResource
 resources =
     [ { name = "Vete"
+      , id = Wheat
       , types = [ Carbohydrate ]
       , produce =
           [ ( SubTropicDry, 0.5 )
@@ -13,6 +14,7 @@ resources =
           ]
       }
     , { name = "Ris"
+      , id = Rice
       , types = [ Carbohydrate ]
       , produce =
           [ ( TropicMedium, 1.5 )
@@ -20,6 +22,7 @@ resources =
           ]
       }
     , { name = "Rörsocker"
+      , id = Sugar
       , types = [ Carbohydrate ]
       , produce =
           [ (TropicHumid, 1)
@@ -28,6 +31,7 @@ resources =
           ]
       }
     , { name = "Majs"
+      , id = Corn
       , types = [ Carbohydrate ]
       , produce =
           [ (SubTropicMedium, 2)
@@ -35,6 +39,7 @@ resources =
           ]
       }
     , { name = "Potatis"
+      , id = Potatoe
       , types = [ Carbohydrate ]
       , produce =
           [ (SubTropicHumid, 2)
@@ -43,6 +48,7 @@ resources =
           ]
       }
     , { name = "Havre"
+      , id = Oats
       , types = [ Carbohydrate ]
       , produce =
           [ (SubTropicMedium, 1.5)
@@ -51,6 +57,7 @@ resources =
           ]
       }
     , { name = "Kassava"
+      , id = Cassava
       , types = [ Carbohydrate ]
       , produce =
           [ (TropicHumid, 1)
@@ -58,6 +65,7 @@ resources =
           ]
       }
     , { name = "Råg"
+      , id = Rye
       , types = [ Carbohydrate ]
       , produce =
           [ (TemperedMedium, 1.5)
@@ -66,6 +74,7 @@ resources =
           ]
       }
     , { name = "Durra"
+      , id = Durra
       , types = [ Carbohydrate ]
       , produce =
           [ (TropicMedium, 1.5)
@@ -73,6 +82,7 @@ resources =
           ]
       }
     , { name = "Jams"
+      , id = Yam
       , types = [ Carbohydrate ]
       , produce =
           [ (TropicHumid, 1.5)
@@ -80,6 +90,7 @@ resources =
           ]
       }
     , { name = "Hirs"
+      , id = Millet
       , types = [ Carbohydrate ]
       , produce =
           [ (TropicDry, 1.5)
@@ -87,6 +98,7 @@ resources =
           ]
       }
     , { name = "Lin"
+      , id = Linen
       , types = [ Textile ]
       , produce =
           [ (SubTropicMedium, 1)
@@ -95,6 +107,7 @@ resources =
           ]
       }
     , { name = "Hampa"
+      , id = Hemp
       , types = [ Textile ]
       , produce =
           [ (TropicHumid, 1)
@@ -103,6 +116,7 @@ resources =
           ]
       }
     , { name = "Silke"
+      , id = Silk
       , types = [ Textile ]
       , produce =
           [ (SubTropicHumid, 1.5)
@@ -110,6 +124,7 @@ resources =
           ]
       }
     , { name = "Jute"
+      , id = Jute
       , types = [ Textile ]
       , produce =
           [ (TropicHumid, 1)
@@ -118,6 +133,7 @@ resources =
           ]
       }
     , { name = "Kikärter"
+      , id = Chickpeas
       , types = [ Protein ]
       , produce =
           [ (SubTropicHumid, 1)
@@ -125,6 +141,7 @@ resources =
           ]
       }
     , { name = "Sojabönor"
+      , id = SoyBean
       , types = [ Protein ]
       , produce =
           [ (TropicMedium, 1)
@@ -132,6 +149,7 @@ resources =
           ]
       }
     , { name = "Nöt"
+      , id = Beef
       , types = [ Protein, Muscle ]
       , produce =
           [ (TropicDry, 0.5)
@@ -143,6 +161,7 @@ resources =
           ]
       }
     , { name = "Svin"
+      , id = Pork
       , types = [ Protein ]
       , produce =
           [ (TropicHumid, 1.5)
@@ -154,6 +173,7 @@ resources =
           ]
       }
     , { name = "Höns"
+      , id = Chicken
       , types = [ Protein ]
       , produce =
             [ (TropicHumid, 1)
@@ -165,6 +185,7 @@ resources =
             ]
       }
     , { name = "Vattenbuffel"
+      , id = WaterBuffalo
       , types = [ Muscle, Protein ]
       , produce =
           [ (TropicHumid, 0.5)
@@ -174,6 +195,7 @@ resources =
           ]
       }
     , { name = "Llama"
+      , id = Llama
       , types = [ Textile, Muscle ]
       , produce =
           [ (SubTropicHumid, 1)
@@ -181,6 +203,7 @@ resources =
           ]
       }
     , { name = "Åsna"
+      , id = Donkey
       , types = [ Muscle ]
       , produce =
           [ (TropicMedium, 1)
@@ -190,6 +213,7 @@ resources =
           ]
       }
     , { name = "Bönor"
+      , id = Beans
       , types = [ Protein ]
       , produce =
           [ (SubTropicMedium, 1)
@@ -198,6 +222,7 @@ resources =
           ]
       }
     , { name = "Bomull"
+      , id = Cotton
       , types = [ Textile ]
       , produce =
             [ (TropicMedium, 1.5)
@@ -206,12 +231,14 @@ resources =
             ]
       }
     , { name = "Kamel"
+      , id = Camel
       , types = [ Muscle, Textile ]
       , produce =
             [ (SubTropicDry, 1.5)
             ]
       }
     , { name = "Elefant"
+      , id = Elephant
       , types = [ Muscle ]
       , produce =
             [ (TropicMedium, 1.5)
@@ -219,6 +246,7 @@ resources =
             ]
       }
     , { name = "Får"
+      , id = Sheep
       , types = [ Textile, Protein ]
       , produce =
             [ (TropicDry, 0.5)
@@ -229,6 +257,7 @@ resources =
             ]
       }
     , { name = "Häst"
+      , id = Horse
       , types = [ Muscle, Protein ]
       , produce =
             [ (TropicDry, 1)
@@ -239,6 +268,11 @@ resources =
             ]
       }
     ]
+
+-- TODO: Implement this
+resourceById : ResourceId -> Maybe NaturalResource
+resourceById resourceId =
+    List.head <| List.filter (\{id} -> id == resourceId) resources
 
 
 climateZoneTypes : List ClimateZoneType

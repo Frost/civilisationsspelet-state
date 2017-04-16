@@ -5,6 +5,7 @@ type ResourceType = Textile
                   | Protein
                   | Carbohydrate
 
+
 type ClimateZoneType = TemperedDry 
                      | TemperedMedium
                      | TemperedHumid
@@ -20,6 +21,8 @@ type TechnologyEffectCondition = ResourceNeeded List ResourceId
 
 
 type alias TechnologyRequirements = List TechnologyEffectCondition
+
+
 type TechnologyEffect = EnableResourceType ResourceType TechnologyRequirements
                       | CivilizationBonus Int TechnologyRequirements
                       | OffensiveBonus Int TechnologyRequirements
@@ -85,6 +88,7 @@ type alias ClimateZone = (ClimateZoneType, String)
 type alias Produce = ( ClimateZoneType, Float )
 
 type alias NaturalResource = { name : String
+                             , id : ResourceId
                              , types : List ResourceType
                              , produce : List Produce
                              }
