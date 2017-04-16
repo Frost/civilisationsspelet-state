@@ -299,6 +299,7 @@ technologyDisplayData =
     , (BookReligion, "Bokreligion", "Inflytande: Du kan avinfluera från civilisationer utan Bokreligion för 2 civilisering/inflytande. Uppror +1.")
     , (Bureaucracy, "Byråkrati", "Krig: Avinfluera 1 när du etablerar kontroll. Poäng: Byt 1 kort.")
     , (Companies, "Företag", "Direkt: Sätt ut en ny handelsväg. Handel: Flytta en extra handelsväg.")
+    , (Credit, "Kredit", "Direkt: Fördubbla stadens storlek.")
     , (Drama, "Drama", "Civilisering +2.")
     , (Engineering, "Ingenjörskonst", "Monument kostar 1 mindre överskott. Fördel +1 försvar.")
     , (Irrigation, "Konstbevattning", "+1 överskott i områden med en flod.")
