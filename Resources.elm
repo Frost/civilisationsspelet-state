@@ -264,104 +264,32 @@ climateZones = [ (TemperedDry, "Tempererat torrt")
                , (TropicMedium, "Tropiskt medel")
                , (TropicHumid, "Tropiskt fuktigt")
                ]
-
 technologies : List Technology
-technologies = [ { id = Astronomy
-                 , effects = []
-                 }
-               , { id = BlackPowder
-                 , effects = [ OffensiveBonus 1 ]
-                 }
-               , { id = BookPress
-                 , effects = []
-                 }
-               , { id = BookReligion
-                 , effects = []
-                 }
-               , { id = Bureaucracy
-                 , effects = []
-                 }
-               , { id = Companies
-                 , effects = []
-                 }
-               , { id = Credit
-                 , effects = []
-                 }
-               , { id = Drama
-                 , effects = [ CivilizationBonus 2 ]
-                 }
-               , { id = Engineering
-                 , effects = [ DefensiveBonus 1 ]
-                 }
-               , { id = Irrigation
-                 , effects = []
-                 }
-               , { id = Law
-                 , effects = [ CivilizationBonus 1 ]
-                 }
-               , { id = Litterature
-                 , effects = [ CivilizationBonus 1 ]
-                 }
-               , { id = Machines
-                 , effects = []
-                 }
-               , { id = Mathematics
-                 , effects = []
-                 }
-               , { id = MetalTooling
-                 , effects = [ MilitaryBonus 1 ]
-                 }
-               , { id = Nationalism
-                 , effects = []
-                 }
-               , { id = Philosophy
-                 , effects = [ CivilizationBonus 1 ]
-                 }
-               , { id = PlantBreeding
-                 , effects = []
-                 }
-               , { id = Priesthood
-                 , effects = [ CivilizationBonus 1 ]
-                 }
-               , { id = Science
-                 , effects = []
-                 }
-               , { id = Weaving
-                 , effects = [ EnableResourceType Textile ]
-                 }
-               , { id = Wheel
-                 , effects = [ EnableResourceType Muscle ]
-                 }
-               , { id = Writing
-                 , effects = []
-                 }
+technologies = [ { id = Astronomy     , effects = [] }
+               , { id = BlackPowder   , effects = [ OffensiveBonus 1 ] }
+               , { id = BookPress     , effects = [] }
+               , { id = BookReligion  , effects = [] }
+               , { id = Bureaucracy   , effects = [] }
+               , { id = Companies     , effects = [] }
+               , { id = Credit        , effects = [] }
+               , { id = Drama         , effects = [ CivilizationBonus 2 ] }
+               , { id = Engineering   , effects = [ DefensiveBonus 1 ]}
+               , { id = Irrigation    , effects = [] }
+               , { id = Law           , effects = [ CivilizationBonus 1 ] }
+               , { id = Litterature   , effects = [ CivilizationBonus 1 ]}
+               , { id = Machines      , effects = [] }
+               , { id = Mathematics   , effects = [] }
+               , { id = MetalTooling  , effects = [ MilitaryBonus 1 ] }
+               , { id = Nationalism   , effects = [] }
+               , { id = Philosophy    , effects = [ CivilizationBonus 1 ] }
+               , { id = PlantBreeding , effects = [] }
+               , { id = Priesthood    , effects = [ CivilizationBonus 1 ] }
+               , { id = Science       , effects = [] }
+               , { id = Weaving       , effects = [ EnableResourceType Textile ] }
+               , { id = Wheel         , effects = [ EnableResourceType Muscle ] }
+               , { id = Writing       , effects = [] }
                ]
 
-  -- technologies = [ { name = "Hjulet"
-  --                 , description = "Möjlighet att använda Muskelkraft"
-  --                 , effects = [ EnableResourceType Muscle ]
-  --                 }
-  --               , { name = "Vävning"
-  --                 , description = "Möjlighet att använda Textil"
-  --                 , effects = [ EnableResourceType Textile ]
-  --                 }
-  --               , { name = "Prästerskap"
-  --                 , description = "Civilisering + 1"
-  --                 , effects = [ CivilizationBonus 1 ]
-  --                 }
-  --               , { name = "Metallredskap"
-  --                 , description = "Fördel + 1"
-  --                 , effects = [ MilitaryBonus 1 ]
-  --                 }
-  --               , { name = "Konstbevattning"
-  --                 , description = "Överskott + 1 i områden med en flod"
-  --                 , effects = [] -- TODO: Implement
-  --                 }
-  --               , { name = "Skrivkonst"
-  --                 , description = "1 rabatt på teknologier som en civilisation du är i kontakt med känner till"
-  --                 , effects = [] -- TODO: Implement
-  --                 }
-  --               ]
 
 technologyDisplayData : List TechnologyDetail
 technologyDisplayData =
