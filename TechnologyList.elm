@@ -1,7 +1,7 @@
 module TechnologyList exposing (view, addTechnology, removeTechnology)
 
 import Html exposing (Html, ul, li, text, section, h1, label, input)
-import Html.Events exposing (onClick)
+import Html.Events exposing (onClick, onMouseOver, onMouseOut)
 import Html.Attributes exposing (type_, checked, for)
 import Types exposing (Player, Technology, Msg, TechnologyId)
 import Resources exposing (technologies, technologyDisplayData)
@@ -34,7 +34,7 @@ item : Player -> Technology -> Html Msg
 item player technology =
     let check = hasTechnology technology player in
       li []
-          [ label []
+          [ label [ onMouseOver (displayTechnologyDetail technology.id), onMouseOut displayNoTechnologyDetail ]
                 [ input [ type_ "checkbox", checked check, onClick (msg check technology)] []
                 , text <| technologyName technology.id
                 ]
@@ -62,3 +62,11 @@ technologyName techId =
               name
           Nothing ->
               ""
+
+displayTechnologyDetail : TechnologyId -> Msg
+displayTechnologyDetail technologyId =
+    Types.DisplayTechnologyDetail (Just technologyId)
+
+displayNoTechnologyDetail : Msg
+displayNoTechnologyDetail =
+    Types.DisplayTechnologyDetail Nothing

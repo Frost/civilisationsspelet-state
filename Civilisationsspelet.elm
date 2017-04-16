@@ -9,6 +9,7 @@ import NaturalResourceList
 import TechnologyList
 import Player
 import PlayerStatus
+import TechnologyDetail
 
 main = Html.beginnerProgram
        { model = initialModel
@@ -20,7 +21,9 @@ main = Html.beginnerProgram
 
 
 initialModel : Model
-initialModel = Player.newPlayer
+initialModel = { player = Player.newPlayer
+               , displayTechnology = Nothing
+               }
 
 -- UPDATE
 
@@ -28,17 +31,19 @@ update : Msg -> Model -> Model
 update msg model =
     case msg of
         AddResource resource ->
-            NaturalResourceList.addResource resource model
-            |> Player.updatePlayer
+            let updatedPlayer = Player.updatePlayer <| NaturalResourceList.addResource resource model.player in
+            {model | player = updatedPlayer}
         RemoveResource resource ->
-            NaturalResourceList.removeResource resource model
-            |> Player.updatePlayer
+            let updatedPlayer = Player.updatePlayer <| NaturalResourceList.removeResource resource model.player in
+            {model | player = updatedPlayer}
         AddTechnology technology ->
-            TechnologyList.addTechnology technology model
-            |> Player.updatePlayer
+            let updatedPlayer = Player.updatePlayer <| TechnologyList.addTechnology technology model.player in
+            {model | player = updatedPlayer }
         RemoveTechnology technology ->
-            TechnologyList.removeTechnology technology model
-            |> Player.updatePlayer
+            let updatedPlayer = Player.updatePlayer <| TechnologyList.removeTechnology technology model.player in
+            {model | player = updatedPlayer}
+        DisplayTechnologyDetail technologyId ->
+            {model | displayTechnology = technologyId}
         _ ->
             model
 
@@ -48,8 +53,9 @@ update msg model =
 view : Model -> Html Msg
 view model =
     div [ style [("display", "flex"), ("flex-direction", "row") ] ]
-        [ PlayerStatus.view model
-        , ProductionOutput.view model
-        , NaturalResourceList.view model
-        , TechnologyList.view model
+        [ PlayerStatus.view model.player
+        , ProductionOutput.view model.player
+        , NaturalResourceList.view model.player
+        , TechnologyList.view model.player
+        , TechnologyDetail.view model.displayTechnology
         ]

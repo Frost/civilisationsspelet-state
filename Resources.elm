@@ -321,6 +321,11 @@ technologyDisplayData =
     ]
 
 
+technologyDetailById : TechnologyId -> Maybe TechnologyDetail
+technologyDetailById techId =
+    List.head <| List.filter (\(id, _, _) -> techId == id) technologyDisplayData
+
+
 zoneColors : List ClimateZone
 zoneColors = [(TropicHumid, "#a10207")
              , (TropicMedium, "#fa0607")

@@ -97,7 +97,9 @@ type alias Player = { resources : List NaturalResource
 type alias Score = Int
 type alias CivilizationLevel = Int
 type alias MilitaryBonus = Int
-type alias Model = Player
+type alias Model = { player : Player
+                   , displayTechnology : Maybe TechnologyId
+                   }
 
 -- type Technology = Technology TechnologyId List TechnologyEffect
 type alias Technology = { id : TechnologyId
@@ -112,4 +114,5 @@ type Msg = AddResource NaturalResource
          | RemoveResource NaturalResource
          | AddTechnology Technology
          | RemoveTechnology Technology
+         | DisplayTechnologyDetail (Maybe TechnologyId)
          | Noop
