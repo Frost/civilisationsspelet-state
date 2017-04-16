@@ -174,7 +174,7 @@ resources =
           ]
       }
     , { name = "Llama"
-      , types = [ Textile, Muscle]
+      , types = [ Textile, Muscle ]
       , produce =
           [ (SubTropicHumid, 1)
           , (SubTropicDry, 0.5)
