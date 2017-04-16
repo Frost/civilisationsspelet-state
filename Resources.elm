@@ -291,3 +291,28 @@ technologies = [ { name = "Hjulet"
                  , effects = [] -- TODO: Implement
                  }
                ]
+
+technologyDisplayData =
+    [ (Astronomy, "Astronomy", "Du kan ha flottor på oceaner. Fördel +1 i havsområden.")
+    , (BlackPowder, "Krutvapen", "Krig: Influera 1 mer när du tar kontroll. Fördel +1 anfall.")
+    , (BookPress, "Tryckpressen", "Teknologi: Köp 1 mer teknologi som en civ du har handel med känner till. Inflytande: Gör 2 uppror.")
+    , (BookReligion, "Bokreligion", "Inflytande: Du kan avinfluera från civilisationer utan Bokreligion för 2 civilisering/inflytande. Uppror +1.")
+    , (Bureaucracy, "Byråkrati", "Krig: Avinfluera 1 när du etablerar kontroll. Poäng: Byt 1 kort.")
+    , (Companies, "Företag", "Direkt: Sätt ut en ny handelsväg. Handel: Flytta en extra handelsväg.")
+    , (Drama, "Drama", "Civilisering +2.")
+    , (Engineering, "Ingenjörskonst", "Monument kostar 1 mindre överskott. Fördel +1 försvar.")
+    , (Irrigation, "Konstbevattning", "+1 överskott i områden med en flod.")
+    , (Law, "Lag", "Civilisering +1. +1 kort.")
+    , (Litterature, "Litteratur", "Direkt: Influera som under en inflytandefas. Civilisering +1.")
+    , (Machines, "Maskiner", "Poäng: du får bygga 1 monument.")
+    , (Mathematics, "Matematik", "Teknologi: köp 2 teknologier.")
+    , (MetalTooling, "Metallredskap", "Fördel + 1")
+    , (Nationalism, "Nationalism", "Poäng: 1 vp per område där din civilisation har 3 mer inflytande än nästa civilisation.")
+    , (Philosophy, "Filosofi", "Direkt: Köp en teknologi. Civilisering +1.")
+    , (PlantBreeding, "Växtförädling", "Natur: Domestisera två gånger.")
+    , (Priesthood, "Prästerskap", "Civilisering +1.")
+    , (Science, "Vetenskap", "Monument är gratis i teknologifasen. 1 rabatt på teknologier.")
+    , (Weaving, "Vävning", "Överskott från textil")
+    , (Wheel, "Hjulet", "Överskott från muskelkraft")
+    , (Writing, "Skrivkonst", "1 rabatt på teknologier som en civilisation du är i kontakt med känner till.")
+    ]
