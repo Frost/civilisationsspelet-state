@@ -96,10 +96,11 @@ type alias CivilizationLevel = Int
 type alias MilitaryBonus = Int
 type alias Model = Player
 
-type alias Technology = { name : String
-                        , description : String
+-- type Technology = Technology TechnologyId List TechnologyEffect
+type alias Technology = { id : TechnologyId
                         , effects : List TechnologyEffect
                         }
+type alias TechnologyDetail = (TechnologyId, String, String)
 
 type Msg = AddResource NaturalResource
          | RemoveResource NaturalResource

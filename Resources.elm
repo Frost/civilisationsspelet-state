@@ -266,34 +266,106 @@ climateZones = [ (TemperedDry, "Tempererat torrt")
                ]
 
 technologies : List Technology
-technologies = [ { name = "Hjulet"
-                 , description = "Möjlighet att använda Muskelkraft"
-                 , effects = [ EnableResourceType Muscle ]
+technologies = [ { id = Astronomy
+                 , effects = []
                  }
-               , { name = "Vävning"
-                 , description = "Möjlighet att använda Textil"
-                 , effects = [ EnableResourceType Textile ]
+               , { id = BlackPowder
+                 , effects = [ OffensiveBonus 1 ]
                  }
-               , { name = "Prästerskap"
-                 , description = "Civilisering + 1"
+               , { id = BookPress
+                 , effects = []
+                 }
+               , { id = BookReligion
+                 , effects = []
+                 }
+               , { id = Bureaucracy
+                 , effects = []
+                 }
+               , { id = Companies
+                 , effects = []
+                 }
+               , { id = Credit
+                 , effects = []
+                 }
+               , { id = Drama
+                 , effects = [ CivilizationBonus 2 ]
+                 }
+               , { id = Engineering
+                 , effects = [ DefensiveBonus 1 ]
+                 }
+               , { id = Irrigation
+                 , effects = []
+                 }
+               , { id = Law
                  , effects = [ CivilizationBonus 1 ]
                  }
-               , { name = "Metallredskap"
-                 , description = "Fördel + 1"
+               , { id = Litterature
+                 , effects = [ CivilizationBonus 1 ]
+                 }
+               , { id = Machines
+                 , effects = []
+                 }
+               , { id = Mathematics
+                 , effects = []
+                 }
+               , { id = MetalTooling
                  , effects = [ MilitaryBonus 1 ]
                  }
-               , { name = "Konstbevattning"
-                 , description = "Överskott + 1 i områden med en flod"
-                 , effects = [] -- TODO: Implement
+               , { id = Nationalism
+                 , effects = []
                  }
-               , { name = "Skrivkonst"
-                 , description = "1 rabatt på teknologier som en civilisation du är i kontakt med känner till"
-                 , effects = [] -- TODO: Implement
+               , { id = Philosophy
+                 , effects = [ CivilizationBonus 1 ]
+                 }
+               , { id = PlantBreeding
+                 , effects = []
+                 }
+               , { id = Priesthood
+                 , effects = [ CivilizationBonus 1 ]
+                 }
+               , { id = Science
+                 , effects = []
+                 }
+               , { id = Weaving
+                 , effects = [ EnableResourceType Textile ]
+                 }
+               , { id = Wheel
+                 , effects = [ EnableResourceType Muscle ]
+                 }
+               , { id = Writing
+                 , effects = []
                  }
                ]
 
+  -- technologies = [ { name = "Hjulet"
+  --                 , description = "Möjlighet att använda Muskelkraft"
+  --                 , effects = [ EnableResourceType Muscle ]
+  --                 }
+  --               , { name = "Vävning"
+  --                 , description = "Möjlighet att använda Textil"
+  --                 , effects = [ EnableResourceType Textile ]
+  --                 }
+  --               , { name = "Prästerskap"
+  --                 , description = "Civilisering + 1"
+  --                 , effects = [ CivilizationBonus 1 ]
+  --                 }
+  --               , { name = "Metallredskap"
+  --                 , description = "Fördel + 1"
+  --                 , effects = [ MilitaryBonus 1 ]
+  --                 }
+  --               , { name = "Konstbevattning"
+  --                 , description = "Överskott + 1 i områden med en flod"
+  --                 , effects = [] -- TODO: Implement
+  --                 }
+  --               , { name = "Skrivkonst"
+  --                 , description = "1 rabatt på teknologier som en civilisation du är i kontakt med känner till"
+  --                 , effects = [] -- TODO: Implement
+  --                 }
+  --               ]
+
+technologyDisplayData : List TechnologyDetail
 technologyDisplayData =
-    [ (Astronomy, "Astronomy", "Du kan ha flottor på oceaner. Fördel +1 i havsområden.")
+    [ (Astronomy, "Astronomi", "Du kan ha flottor på oceaner. Fördel +1 i havsområden.")
     , (BlackPowder, "Krutvapen", "Krig: Influera 1 mer när du tar kontroll. Fördel +1 anfall.")
     , (BookPress, "Tryckpressen", "Teknologi: Köp 1 mer teknologi som en civ du har handel med känner till. Inflytande: Gör 2 uppror.")
     , (BookReligion, "Bokreligion", "Inflytande: Du kan avinfluera från civilisationer utan Bokreligion för 2 civilisering/inflytande. Uppror +1.")

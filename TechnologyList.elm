@@ -3,7 +3,7 @@ module TechnologyList exposing (view, addTechnology, removeTechnology)
 import Html exposing (Html, ul, li, text, section, h1, label, input)
 import Html.Events exposing (onClick)
 import Html.Attributes exposing (type_, checked, for)
-import Types exposing (Player, Technology, Msg)
+import Types exposing (Player, Technology, Msg, TechnologyId)
 import Resources exposing (technologies, technologyDisplayData)
 
 addTechnology : Technology -> Player -> Player
@@ -36,7 +36,7 @@ item player technology =
       li []
           [ label []
                 [ input [ type_ "checkbox", checked check, onClick (msg check technology)] []
-                , text technology.name
+                , text <| technologyName technology.id
                 ]
           ]
 
@@ -52,3 +52,13 @@ msg playerHasTechnology technology =
         Types.RemoveTechnology technology
     else
         Types.AddTechnology technology
+
+
+technologyName : TechnologyId -> String
+technologyName techId =
+    let filterById = (\(id, name, _) -> techId == id) in
+      case List.head <| List.filter filterById technologyDisplayData of
+          Just (_, name, _) ->
+              name
+          Nothing ->
+              ""
