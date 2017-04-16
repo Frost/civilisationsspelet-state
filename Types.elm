@@ -6,15 +6,15 @@ type ResourceType = Textile
                   | Carbohydrate
 
 
-type ClimateZoneType = TemperedDry 
+type ClimateZoneType = TemperedHumid
                      | TemperedMedium
-                     | TemperedHumid
-                     | SubTropicDry
-                     | SubTropicMedium
+                     | TemperedDry
                      | SubTropicHumid
-                     | TropicDry
-                     | TropicMedium
+                     | SubTropicMedium
+                     | SubTropicDry
                      | TropicHumid
+                     | TropicMedium
+                     | TropicDry
 
 
 type TechnologyEffectCondition = ResourceNeeded List ResourceId

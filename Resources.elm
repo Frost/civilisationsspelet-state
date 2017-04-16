@@ -276,15 +276,15 @@ resourceById resourceId =
 
 
 climateZoneTypes : List ClimateZoneType
-climateZoneTypes = [ TemperedDry
+climateZoneTypes = [ TemperedHumid
                    , TemperedMedium
-                   , TemperedHumid
-                   , SubTropicDry
-                   , SubTropicMedium
+                   , TemperedDry
                    , SubTropicHumid
-                   , TropicDry
-                   , TropicMedium
+                   , SubTropicMedium
+                   , SubTropicDry
                    , TropicHumid
+                   , TropicMedium
+                   , TropicDry
                    ]
 
 climateZones : List ClimateZone
