@@ -264,29 +264,31 @@ climateZones = [ (TemperedDry, "Tempererat torrt")
                , (TropicMedium, "Tropiskt medel")
                , (TropicHumid, "Tropiskt fuktigt")
                ]
-technologies : List Technology
+
+
+-- technologies : List Technology
 technologies = [ { id = Astronomy     , effects = [] }
-               , { id = BlackPowder   , effects = [ OffensiveBonus 1 ] }
+               , { id = BlackPowder   , effects = [ OffensiveBonus 1 [] ] }
                , { id = BookPress     , effects = [] }
                , { id = BookReligion  , effects = [] }
                , { id = Bureaucracy   , effects = [] }
                , { id = Companies     , effects = [] }
                , { id = Credit        , effects = [] }
-               , { id = Drama         , effects = [ CivilizationBonus 2 ] }
-               , { id = Engineering   , effects = [ DefensiveBonus 1 ]}
+               , { id = Drama         , effects = [ CivilizationBonus 2 [] ] }
+               , { id = Engineering   , effects = [ DefensiveBonus 1 [] ]}
                , { id = Irrigation    , effects = [] }
-               , { id = Law           , effects = [ CivilizationBonus 1 ] }
-               , { id = Litterature   , effects = [ CivilizationBonus 1 ]}
+               , { id = Law           , effects = [ CivilizationBonus 1 [] ] }
+               , { id = Litterature   , effects = [ CivilizationBonus 1 [] ]}
                , { id = Machines      , effects = [] }
                , { id = Mathematics   , effects = [] }
-               , { id = MetalTooling  , effects = [ MilitaryBonus 1 ] }
+               , { id = MetalTooling  , effects = [ MilitaryBonus 1 [] ] }
                , { id = Nationalism   , effects = [] }
-               , { id = Philosophy    , effects = [ CivilizationBonus 1 ] }
+               , { id = Philosophy    , effects = [ CivilizationBonus 1 [] ] }
                , { id = PlantBreeding , effects = [] }
-               , { id = Priesthood    , effects = [ CivilizationBonus 1 ] }
+               , { id = Priesthood    , effects = [ CivilizationBonus 1 [] ] }
                , { id = Science       , effects = [] }
-               , { id = Weaving       , effects = [ EnableResourceType Textile ] }
-               , { id = Wheel         , effects = [ EnableResourceType Muscle ] }
+               , { id = Weaving       , effects = [ EnableResourceType Textile [] ] }
+               , { id = Wheel         , effects = [ EnableResourceType Muscle [] ] }
                , { id = Writing       , effects = [] }
                ]
 

@@ -28,7 +28,7 @@ civilizationBonuses player =
 civilizationLevelFromEffect : TechnologyEffect -> Maybe CivilizationLevel
 civilizationLevelFromEffect effect =
     case effect of
-        Types.CivilizationBonus value ->
+        Types.CivilizationBonus value _ ->
             Just value
         _ ->
             Nothing

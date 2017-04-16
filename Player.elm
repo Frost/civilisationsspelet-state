@@ -37,7 +37,7 @@ technologyEffects player =
 addResourceTypeByEffect : TechnologyEffect -> Maybe ResourceType
 addResourceTypeByEffect effect =
     case effect of
-        EnableResourceType resourceType ->
+        EnableResourceType resourceType _ ->
             Just resourceType
         _ ->
             Nothing

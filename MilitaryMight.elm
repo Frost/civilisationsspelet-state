@@ -35,9 +35,9 @@ militaryBonuses fun player =
 offensiveBonusFromEffect : TechnologyEffect -> Maybe MilitaryBonus
 offensiveBonusFromEffect effect =
     case effect of
-        Types.MilitaryBonus value ->
+        Types.MilitaryBonus value _ ->
             Just value
-        Types.OffensiveBonus value ->
+        Types.OffensiveBonus value _ ->
             Just value
         _ ->
             Nothing
@@ -46,9 +46,9 @@ offensiveBonusFromEffect effect =
 defensiveBonusFromEffect : TechnologyEffect -> Maybe MilitaryBonus
 defensiveBonusFromEffect effect =
     case effect of
-        Types.MilitaryBonus value ->
+        Types.MilitaryBonus value _ ->
             Just value
-        Types.DefensiveBonus value ->
+        Types.DefensiveBonus value _ ->
             Just value
         _ ->
             Nothing
