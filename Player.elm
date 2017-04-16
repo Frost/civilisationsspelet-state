@@ -1,4 +1,4 @@
-module Player exposing (newPlayer, updatePlayer)
+module Player exposing (newPlayer, updatePlayer, technologyEffects)
 
 import Types exposing (..)
 
@@ -13,6 +13,7 @@ updatePlayer player =
 
 
 -- Private functions
+
 
 baseTypes : List ResourceType
 baseTypes = [ Types.Protein, Types.Carbohydrate ]

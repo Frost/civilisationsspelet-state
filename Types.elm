@@ -36,6 +36,8 @@ type alias Player = { resources : List NaturalResource
                     }
 
 type alias Score = Int
+type alias CivilizationLevel = Int
+type alias MilitaryBonus = Int
 type alias Model = Player
 
 type alias Technology = { name : String

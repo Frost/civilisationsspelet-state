@@ -1,6 +1,6 @@
 module Civilisationsspelet exposing (main)
 
-import Html exposing (Html, div)
+import Html exposing (Html, div, text)
 import Html.Attributes exposing (style)
 import Types exposing (..)
 import Resources exposing (resources)
@@ -8,6 +8,7 @@ import ProductionOutput
 import NaturalResourceList
 import TechnologyList
 import Player
+import PlayerStatus
 
 main = Html.beginnerProgram
        { model = initialModel
@@ -47,7 +48,8 @@ update msg model =
 view : Model -> Html Msg
 view model =
     div [ style [("display", "flex"), ("flex-direction", "row") ] ]
-        [ ProductionOutput.view model
+        [ PlayerStatus.view model
+        , ProductionOutput.view model
         , NaturalResourceList.view model
         , TechnologyList.view model
         ]
