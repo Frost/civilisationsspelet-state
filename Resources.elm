@@ -331,7 +331,7 @@ technologies = [ { id = Astronomy     , cost = 4, effects = [ (MilitaryBonusAtSe
                , { id = Litterature   , cost = 3, effects = [ (CivilizationBonus 1, None) ]}
                , { id = Machines      , cost = 3, effects = [] }
                , { id = Mathematics   , cost = 3, effects = [] }
-               , { id = MetalTooling  , cost = 1, effects = [ (MilitaryBonus 1, None) ] }
+               , { id = Metallurgy    , cost = 1, effects = [ (MilitaryBonus 1, None) ] }
                , { id = Nationalism   , cost = 5, effects = [] }
                , { id = Philosophy    , cost = 4, effects = [ (CivilizationBonus 1, None) ] }
                , { id = PlantBreeding , cost = 3, effects = [] }
@@ -360,7 +360,7 @@ technologyDisplayData =
     , (Litterature, "Litteratur", "Direkt: Influera som under en inflytandefas. Civilisering +1.")
     , (Machines, "Maskiner", "Poäng: du får bygga 1 monument.")
     , (Mathematics, "Matematik", "Teknologi: köp 2 teknologier.")
-    , (MetalTooling, "Metallredskap", "Fördel + 1")
+    , (Metallurgy, "Metallredskap", "Fördel + 1")
     , (Nationalism, "Nationalism", "Poäng: 1 vp per område där din civilisation har 3 mer inflytande än nästa civilisation.")
     , (Philosophy, "Filosofi", "Direkt: Köp en teknologi. Civilisering +1.")
     , (PlantBreeding, "Växtförädling", "Natur: Domestisera två gånger.")

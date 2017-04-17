@@ -74,7 +74,7 @@ type TechnologyId = Astronomy
                   | Litterature
                   | Machines
                   | Mathematics
-                  | MetalTooling
+                  | Metallurgy
                   | Nationalism
                   | Philosophy
                   | PlantBreeding
