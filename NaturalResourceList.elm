@@ -27,7 +27,7 @@ view player =
 
 items : Player -> List (Html Msg)
 items player =
-    List.map (item player) resources
+    List.map (item player) <| List.sortBy (\{name} -> name) resources
 
 
 item : Player -> NaturalResource -> Html Msg
