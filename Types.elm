@@ -17,17 +17,18 @@ type ClimateZoneType = TemperedHumid
                      | TropicDry
 
 
-type TechnologyEffectCondition = ResourceNeeded List ResourceId
+type TechnologyRequirements = OneResourceNeeded (List ResourceId)
+                            | None
 
+type TechnologyEffect = EnableResourceType ResourceType
+                        | CivilizationBonus Int
+                        | OffensiveBonus Int
+                        | DefensiveBonus Int
+                        | MilitaryBonus Int
+                        | MilitaryBonusOnLand Int
+                        | MilitaryBonusAtSea Int
 
-type alias TechnologyRequirements = List TechnologyEffectCondition
-
-
-type TechnologyEffect = EnableResourceType ResourceType TechnologyRequirements
-                      | CivilizationBonus Int TechnologyRequirements
-                      | OffensiveBonus Int TechnologyRequirements
-                      | DefensiveBonus Int TechnologyRequirements
-                      | MilitaryBonus Int TechnologyRequirements
+type alias TechnologyEffectCondition = (TechnologyEffect, TechnologyRequirements)
 
 type ResourceId = Beans
                 | Beef
@@ -79,6 +80,7 @@ type TechnologyId = Astronomy
                   | PlantBreeding
                   | Priesthood
                   | Science
+                  | Stirrup
                   | Weaving
                   | Wheel
                   | Writing
@@ -108,7 +110,7 @@ type alias Model = { player : Player
 
 -- type Technology = Technology TechnologyId List TechnologyEffect
 type alias Technology = { id : TechnologyId
-                        , effects : List TechnologyEffect
+                        , effects : List TechnologyEffectCondition
                         }
 
 

@@ -29,15 +29,32 @@ resourceTypesFromTechnology player =
     List.filterMap addResourceTypeByEffect <| technologyEffects player
 
 
-technologyEffects : Player -> List TechnologyEffect
+technologyEffects : Player -> List TechnologyEffectCondition
 technologyEffects player =
-    List.concatMap (\tech -> tech.effects) player.technologies
+    player.technologies
+    |> List.concatMap (\{effects} -> effects)
+    |> List.filter (playerHasRequirementsForEffect player)
 
 
-addResourceTypeByEffect : TechnologyEffect -> Maybe ResourceType
-addResourceTypeByEffect effect =
+addResourceTypeByEffect : TechnologyEffectCondition -> Maybe ResourceType
+addResourceTypeByEffect (effect, _) =
     case effect of
-        EnableResourceType resourceType _ ->
+        EnableResourceType resourceType ->
             Just resourceType
         _ ->
             Nothing
+
+
+-- filter technology effects by requirements
+playerHasRequirementsForEffect : Player -> TechnologyEffectCondition -> Bool
+playerHasRequirementsForEffect player (effect, condition) =
+    case condition of
+        None ->
+            True
+        OneResourceNeeded resources ->
+            List.any (\r -> List.member r <| resourceIds player) resources
+
+
+resourceIds : Player -> List ResourceId
+resourceIds player =
+    List.map (\{id} -> id) player.resources

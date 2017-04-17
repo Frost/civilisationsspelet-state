@@ -317,28 +317,29 @@ climateZones = [ (TemperedDry, "Tempererat torrt")
 
 
 -- technologies : List Technology
-technologies = [ { id = Astronomy     , effects = [] }
-               , { id = BlackPowder   , effects = [ OffensiveBonus 1 [] ] }
+technologies = [ { id = Astronomy     , effects = [ (MilitaryBonusAtSea 1, None)] }
+               , { id = BlackPowder   , effects = [ (OffensiveBonus 1, None) ] }
                , { id = BookPress     , effects = [] }
                , { id = BookReligion  , effects = [] }
                , { id = Bureaucracy   , effects = [] }
                , { id = Companies     , effects = [] }
                , { id = Credit        , effects = [] }
-               , { id = Drama         , effects = [ CivilizationBonus 2 [] ] }
-               , { id = Engineering   , effects = [ DefensiveBonus 1 [] ]}
+               , { id = Drama         , effects = [ (CivilizationBonus 2, None) ] }
+               , { id = Engineering   , effects = [ (DefensiveBonus 1, None) ]}
                , { id = Irrigation    , effects = [] }
-               , { id = Law           , effects = [ CivilizationBonus 1 [] ] }
-               , { id = Litterature   , effects = [ CivilizationBonus 1 [] ]}
+               , { id = Law           , effects = [ (CivilizationBonus 1, None) ] }
+               , { id = Litterature   , effects = [ (CivilizationBonus 1, None) ]}
                , { id = Machines      , effects = [] }
                , { id = Mathematics   , effects = [] }
-               , { id = MetalTooling  , effects = [ MilitaryBonus 1 [] ] }
+               , { id = MetalTooling  , effects = [ (MilitaryBonus 1, None) ] }
                , { id = Nationalism   , effects = [] }
-               , { id = Philosophy    , effects = [ CivilizationBonus 1 [] ] }
+               , { id = Philosophy    , effects = [ (CivilizationBonus 1, None) ] }
                , { id = PlantBreeding , effects = [] }
-               , { id = Priesthood    , effects = [ CivilizationBonus 1 [] ] }
+               , { id = Priesthood    , effects = [ (CivilizationBonus 1, None) ] }
                , { id = Science       , effects = [] }
-               , { id = Weaving       , effects = [ EnableResourceType Textile [] ] }
-               , { id = Wheel         , effects = [ EnableResourceType Muscle [] ] }
+               , { id = Stirrup       , effects = [ (MilitaryBonusOnLand 1, OneResourceNeeded [ Horse, Elephant, Camel ]) ] }
+               , { id = Weaving       , effects = [ (EnableResourceType Textile, None) ] }
+               , { id = Wheel         , effects = [ (EnableResourceType Muscle, None) ] }
                , { id = Writing       , effects = [] }
                ]
 
@@ -365,6 +366,7 @@ technologyDisplayData =
     , (PlantBreeding, "Växtförädling", "Natur: Domestisera två gånger.")
     , (Priesthood, "Prästerskap", "Civilisering +1.")
     , (Science, "Vetenskap", "Monument är gratis i teknologifasen. 1 rabatt på teknologier.")
+    , (Stirrup, "Stigbygeln", "+1 fördel på land om du har antingen häst, elefant eller kamel. Flytta ett extra steg genom torra områden.")
     , (Weaving, "Vävning", "Överskott från textil")
     , (Wheel, "Hjulet", "Överskott från muskelkraft")
     , (Writing, "Skrivkonst", "1 rabatt på teknologier som en civilisation du är i kontakt med känner till.")

@@ -1,7 +1,7 @@
 module CivilizationLevel exposing (view)
 
 import Html exposing (Html, dt, dd, text)
-import Types exposing (Player, CivilizationLevel, Msg, TechnologyEffect)
+import Types exposing (Player, CivilizationLevel, Msg, TechnologyEffectCondition)
 import Player exposing (technologyEffects)
 
 
@@ -25,10 +25,10 @@ civilizationBonuses player =
     List.filterMap civilizationLevelFromEffect <| technologyEffects player
 
 
-civilizationLevelFromEffect : TechnologyEffect -> Maybe CivilizationLevel
-civilizationLevelFromEffect effect =
+civilizationLevelFromEffect : TechnologyEffectCondition -> Maybe CivilizationLevel
+civilizationLevelFromEffect (effect, _) =
     case effect of
-        Types.CivilizationBonus value _ ->
+        Types.CivilizationBonus value ->
             Just value
         _ ->
             Nothing
