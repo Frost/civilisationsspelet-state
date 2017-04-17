@@ -416,6 +416,13 @@ zoneTranslation zoneType =
         Just (zt, translation) ->
             translation
 
+allResourceTypes : List ResourceType
+allResourceTypes = [ Carbohydrate
+                   , Muscle
+                   , Protein
+                   , Textile
+                   ]
+
 resourceTypeName : ResourceType -> String
 resourceTypeName resourceType =
     case resourceType of

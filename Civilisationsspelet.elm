@@ -58,7 +58,7 @@ view : Model -> Html Msg
 view model =
     div [ style [("display", "flex"), ("flex-direction", "row") ] ]
         [ PlayerStatus.view model.player
-        , ProductionOutput.view model.player
+        , ProductionOutput.playerOutput model.player
         , NaturalResourceList.view model.player
         , TechnologyList.view model.player
         , TechnologyDetail.view model.displayTechnology
