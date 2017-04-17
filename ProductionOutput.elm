@@ -3,7 +3,7 @@ module ProductionOutput exposing (view)
 import Types exposing (..)
 import Resources exposing (..)
 import Html exposing (Html, table, thead, tbody, tr, th, td, text, section, h1)
-import Html.Attributes exposing (style)
+import Html.Attributes exposing (style, colspan)
 
 view : Player -> Html Msg
 view player =
@@ -12,8 +12,8 @@ view player =
         ,  table []
             [ thead []
                   [ tr []
-                        [ th [] [ text "Klimatzon" ]
-                        , th [] [ text "Produktion" ]
+                        [ th [ colspan 2] [ text "Klimatzon" ]
+                        , th [] [ text "Prod" ]
                         ]
                   ]
             , tbody []
@@ -24,9 +24,10 @@ view player =
 -- Render output for a climate zone
 climateZoneOutputView : Produce -> Html Msg
 climateZoneOutputView (zoneType, value) =
-    tr [ style [("background-color", zoneColor zoneType)] ]
-        [ td [] [ text (zoneTranslation zoneType) ]
-        , td [] [ text (toString value) ]
+    tr []
+        [ td [ style [("background-color", zoneColor zoneType), ("width", "1rem")] ] []
+        , td [] [ text (zoneTranslation zoneType) ]
+        , td [ style [("text-align", "right")]] [ text (toString value) ]
         ]
 
 

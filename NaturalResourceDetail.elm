@@ -1,7 +1,7 @@
 module NaturalResourceDetail exposing (view)
 
 import Html exposing (Html, section, h1, h2, p, text, table, tbody, tr, td, thead, th)
-import Html.Attributes exposing (style)
+import Html.Attributes exposing (style, colspan)
 import Types exposing (..)
 import Resources exposing (..)
 
@@ -31,16 +31,17 @@ outputTable : List Produce -> Html Msg
 outputTable produce =
     table []
         [ thead []
-              [ th [] [ text "Klimatzon" ]
-              , th [] [ text "Produktion" ]
+              [ th [ colspan 2 ] [ text "Klimatzon" ]
+              , th [] [ text "Prod" ]
               ]
         , tbody [] (List.map outputLine <| resourceOutput produce)
         ]
 
 outputLine : Produce -> Html Msg
 outputLine (zoneType, value) =
-    tr [ style [("background-color", zoneColor zoneType)] ]
-        [ td [] [ text <| zoneTranslation zoneType ]
+    tr []
+        [ td [ style [("background-color", zoneColor zoneType), ("width", "1rem")] ] []
+        , td [] [ text <| zoneTranslation zoneType ]
         , td [] [ text <| toString value ]
         ]
 
