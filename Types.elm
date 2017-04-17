@@ -108,8 +108,8 @@ type alias Model = { player : Player
                    , displayResource : Maybe ResourceId
                    }
 
--- type Technology = Technology TechnologyId List TechnologyEffect
 type alias Technology = { id : TechnologyId
+                        , cost : Int
                         , effects : List TechnologyEffectCondition
                         }
 

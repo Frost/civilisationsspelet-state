@@ -317,30 +317,30 @@ climateZones = [ (TemperedDry, "Tempererat torrt")
 
 
 -- technologies : List Technology
-technologies = [ { id = Astronomy     , effects = [ (MilitaryBonusAtSea 1, None)] }
-               , { id = BlackPowder   , effects = [ (OffensiveBonus 1, None) ] }
-               , { id = BookPress     , effects = [] }
-               , { id = BookReligion  , effects = [] }
-               , { id = Bureaucracy   , effects = [] }
-               , { id = Companies     , effects = [] }
-               , { id = Credit        , effects = [] }
-               , { id = Drama         , effects = [ (CivilizationBonus 2, None) ] }
-               , { id = Engineering   , effects = [ (DefensiveBonus 1, None) ]}
-               , { id = Irrigation    , effects = [] }
-               , { id = Law           , effects = [ (CivilizationBonus 1, None) ] }
-               , { id = Litterature   , effects = [ (CivilizationBonus 1, None) ]}
-               , { id = Machines      , effects = [] }
-               , { id = Mathematics   , effects = [] }
-               , { id = MetalTooling  , effects = [ (MilitaryBonus 1, None) ] }
-               , { id = Nationalism   , effects = [] }
-               , { id = Philosophy    , effects = [ (CivilizationBonus 1, None) ] }
-               , { id = PlantBreeding , effects = [] }
-               , { id = Priesthood    , effects = [ (CivilizationBonus 1, None) ] }
-               , { id = Science       , effects = [] }
-               , { id = Stirrup       , effects = [ (MilitaryBonusOnLand 1, OneResourceNeeded [ Horse, Elephant, Camel ]) ] }
-               , { id = Weaving       , effects = [ (EnableResourceType Textile, None) ] }
-               , { id = Wheel         , effects = [ (EnableResourceType Muscle, None) ] }
-               , { id = Writing       , effects = [] }
+technologies = [ { id = Astronomy     , cost = 4, effects = [ (MilitaryBonusAtSea 1, None)] }
+               , { id = BlackPowder   , cost = 4, effects = [ (OffensiveBonus 1, None) ] }
+               , { id = BookPress     , cost = 4, effects = [] }
+               , { id = BookReligion  , cost = 3, effects = [] }
+               , { id = Bureaucracy   , cost = 5, effects = [] }
+               , { id = Companies     , cost = 5, effects = [] }
+               , { id = Credit        , cost = 4, effects = [] }
+               , { id = Drama         , cost = 2, effects = [ (CivilizationBonus 2, None) ] }
+               , { id = Engineering   , cost = 2, effects = [ (DefensiveBonus 1, None) ]}
+               , { id = Irrigation    , cost = 1, effects = [] }
+               , { id = Law           , cost = 2, effects = [ (CivilizationBonus 1, None) ] }
+               , { id = Litterature   , cost = 3, effects = [ (CivilizationBonus 1, None) ]}
+               , { id = Machines      , cost = 3, effects = [] }
+               , { id = Mathematics   , cost = 3, effects = [] }
+               , { id = MetalTooling  , cost = 1, effects = [ (MilitaryBonus 1, None) ] }
+               , { id = Nationalism   , cost = 5, effects = [] }
+               , { id = Philosophy    , cost = 4, effects = [ (CivilizationBonus 1, None) ] }
+               , { id = PlantBreeding , cost = 3, effects = [] }
+               , { id = Priesthood    , cost = 1, effects = [ (CivilizationBonus 1, None) ] }
+               , { id = Science       , cost = 5, effects = [] }
+               , { id = Stirrup       , cost = 2, effects = [ (MilitaryBonusOnLand 1, OneResourceNeeded [ Horse, Elephant, Camel ]) ] }
+               , { id = Weaving       , cost = 1, effects = [ (EnableResourceType Textile, None) ] }
+               , { id = Wheel         , cost = 1, effects = [ (EnableResourceType Muscle, None) ] }
+               , { id = Writing       , cost = 1, effects = [] }
                ]
 
 
