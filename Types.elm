@@ -103,6 +103,7 @@ type alias CivilizationLevel = Int
 type alias MilitaryBonus = Int
 type alias Model = { player : Player
                    , displayTechnology : Maybe TechnologyId
+                   , displayResource : Maybe ResourceId
                    }
 
 -- type Technology = Technology TechnologyId List TechnologyEffect
@@ -119,4 +120,5 @@ type Msg = AddResource NaturalResource
          | AddTechnology Technology
          | RemoveTechnology Technology
          | DisplayTechnologyDetail (Maybe TechnologyId)
+         | DisplayResourceDetail (Maybe ResourceId)
          | Noop

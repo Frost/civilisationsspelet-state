@@ -1,7 +1,7 @@
 module NaturalResourceList exposing (view, addResource, removeResource)
 
 import Html exposing (Html, ul, li, text, section, h1, input, label)
-import Html.Events exposing (onClick)
+import Html.Events exposing (onClick, onMouseOver, onMouseOut)
 import Html.Attributes exposing (type_, checked, for)
 import Types exposing (Player, NaturalResource, Msg)
 import Resources exposing (resources)
@@ -34,7 +34,7 @@ item : Player -> NaturalResource -> Html Msg
 item player resource =
   let check = hasResource resource player in
     li []
-      [ label []
+      [ label [ onMouseOver (displayResourceDetail resource.id), onMouseOut (displayNoResourceDetail) ]
         [ input [ type_ "checkbox", checked check, onClick (msg check resource) ] []
         , text resource.name
         ]
@@ -52,3 +52,13 @@ msg playerHasResource resource =
         Types.RemoveResource resource
     else
         Types.AddResource resource
+
+
+displayResourceDetail : Types.ResourceId -> Msg
+displayResourceDetail resourceId =
+    Types.DisplayResourceDetail (Just resourceId)
+
+
+displayNoResourceDetail : Msg
+displayNoResourceDetail =
+    Types.DisplayResourceDetail Nothing

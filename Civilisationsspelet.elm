@@ -10,6 +10,7 @@ import TechnologyList
 import Player
 import PlayerStatus
 import TechnologyDetail
+import NaturalResourceDetail
 
 main = Html.beginnerProgram
        { model = initialModel
@@ -23,6 +24,7 @@ main = Html.beginnerProgram
 initialModel : Model
 initialModel = { player = Player.newPlayer
                , displayTechnology = Nothing
+               , displayResource = Nothing
                }
 
 -- UPDATE
@@ -44,6 +46,8 @@ update msg model =
             {model | player = updatedPlayer}
         DisplayTechnologyDetail technologyId ->
             {model | displayTechnology = technologyId}
+        DisplayResourceDetail resourceId ->
+            {model | displayResource = resourceId}
         _ ->
             model
 
@@ -58,4 +62,5 @@ view model =
         , NaturalResourceList.view model.player
         , TechnologyList.view model.player
         , TechnologyDetail.view model.displayTechnology
+        , NaturalResourceDetail.view model.displayResource
         ]

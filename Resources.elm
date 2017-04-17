@@ -276,16 +276,32 @@ resourceById resourceId =
 
 
 climateZoneTypes : List ClimateZoneType
-climateZoneTypes = [ TemperedHumid
-                   , TemperedMedium
-                   , TemperedDry
-                   , SubTropicHumid
-                   , SubTropicMedium
-                   , SubTropicDry
-                   , TropicHumid
-                   , TropicMedium
-                   , TropicDry
-                   ]
+climateZoneTypes =
+    [ TropicHumid
+    , TropicMedium
+    , TropicDry
+    , SubTropicHumid
+    , SubTropicMedium
+    , SubTropicDry
+    , TemperedHumid
+    , TemperedMedium
+    , TemperedDry
+    ]
+
+
+climateZoneTypesByHumidity : List ClimateZoneType
+climateZoneTypesByHumidity =
+    [ TropicHumid
+    , TropicMedium
+    , TropicDry
+    , SubTropicHumid
+    , SubTropicMedium
+    , SubTropicDry
+    , TemperedHumid
+    , TemperedMedium
+    , TemperedDry
+    ]
+
 
 climateZones : List ClimateZone
 climateZones = [ (TemperedDry, "Tempererat torrt")
@@ -386,3 +402,13 @@ colorByZone zoneType (zt, color) =
         Just color
     else
         Nothing
+
+
+-- Find the nice output for a climate zone
+zoneTranslation : ClimateZoneType -> String
+zoneTranslation zoneType =
+    case List.filter (\(zt, translation) -> zoneType == zt) climateZones |> List.head of
+        Nothing ->
+            ""
+        Just (zt, translation) ->
+            translation

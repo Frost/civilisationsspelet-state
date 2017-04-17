@@ -42,6 +42,7 @@ outputByClimateZone player zone =
     (zone, List.foldr (\t acc -> acc + outputByResourceType player.resources t zone) 0.0 player.resourceTypes)
 
 
+-- TODO: Use the one in NaturaResourceDetail instead?
 -- outputs the maximum output for one resource type in a specific climate zone from a list of resources
 outputByResourceType : List NaturalResource -> ResourceType -> ClimateZoneType -> Float
 outputByResourceType resources resourceType zone =
@@ -69,13 +70,3 @@ hasResourceType resourceType resource =
         Just resource
     else
         Nothing
-
-
--- Find the nice output for a climate zone
-zoneTranslation : ClimateZoneType -> String
-zoneTranslation zoneType =
-    case List.filter (\(zt, translation) -> zoneType == zt) climateZones |> List.head of
-        Nothing ->
-            ""
-        Just (zt, translation) ->
-            translation
