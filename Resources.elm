@@ -317,31 +317,32 @@ climateZones = [ (TemperedDry, "Tempererat torrt")
 
 
 -- technologies : List Technology
-technologies = [ { id = Astronomy     , cost = 4, effects = [ (MilitaryBonusAtSea 1, None)] }
-               , { id = BlackPowder   , cost = 4, effects = [ (OffensiveBonus 1, None) ] }
-               , { id = BookPress     , cost = 4, effects = [] }
-               , { id = BookReligion  , cost = 3, effects = [] }
-               , { id = Bureaucracy   , cost = 5, effects = [] }
-               , { id = Companies     , cost = 5, effects = [] }
-               , { id = Credit        , cost = 4, effects = [] }
-               , { id = Drama         , cost = 2, effects = [ (CivilizationBonus 2, None) ] }
-               , { id = Engineering   , cost = 2, effects = [ (DefensiveBonus 1, None) ]}
-               , { id = Irrigation    , cost = 1, effects = [] }
-               , { id = Law           , cost = 2, effects = [ (CivilizationBonus 1, None) ] }
-               , { id = Litterature   , cost = 3, effects = [ (CivilizationBonus 1, None) ]}
-               , { id = Machines      , cost = 3, effects = [] }
-               , { id = Mathematics   , cost = 3, effects = [] }
-               , { id = Metallurgy    , cost = 1, effects = [ (MilitaryBonus 1, None) ] }
-               , { id = Nationalism   , cost = 5, effects = [] }
-               , { id = Philosophy    , cost = 4, effects = [ (CivilizationBonus 1, None) ] }
-               , { id = PlantBreeding , cost = 3, effects = [] }
-               , { id = Priesthood    , cost = 1, effects = [ (CivilizationBonus 1, None) ] }
-               , { id = Science       , cost = 5, effects = [] }
-               , { id = Stirrup       , cost = 2, effects = [ (MilitaryBonusOnLand 1, OneResourceNeeded [ Horse, Elephant, Camel ]) ] }
-               , { id = Weaving       , cost = 1, effects = [ (EnableResourceType Textile, None) ] }
-               , { id = Wheel         , cost = 1, effects = [ (EnableResourceType Muscle, None) ] }
-               , { id = Writing       , cost = 1, effects = [] }
-               ]
+technologies =
+    [ { id = Metallurgy    , cost = 1, effects = [ (MilitaryBonus 1, None) ] }
+    , { id = Irrigation    , cost = 1, effects = [] }
+    , { id = Priesthood    , cost = 1, effects = [ (CivilizationBonus 1, None) ] }
+    , { id = Writing       , cost = 1, effects = [] }
+    , { id = Weaving       , cost = 1, effects = [ (EnableResourceType Textile, None) ] }
+    , { id = Wheel         , cost = 1, effects = [ (EnableResourceType Muscle, None) ] }
+    , { id = Stirrup       , cost = 2, effects = [ (MilitaryBonusOnLand 1, OneResourceNeeded [ Horse, Elephant, Camel ]) ] }
+    , { id = Drama         , cost = 2, effects = [ (CivilizationBonus 2, None) ] }
+    , { id = Law           , cost = 2, effects = [ (CivilizationBonus 1, None) ] }
+    , { id = Engineering   , cost = 2, effects = [ (DefensiveBonus 1, None) ]}
+    , { id = Machines      , cost = 3, effects = [] }
+    , { id = Litterature   , cost = 3, effects = [ (CivilizationBonus 1, None) ]}
+    , { id = Mathematics   , cost = 3, effects = [] }
+    , { id = PlantBreeding , cost = 3, effects = [] }
+    , { id = BookReligion  , cost = 3, effects = [] }
+    , { id = Philosophy    , cost = 4, effects = [ (CivilizationBonus 1, None) ] }
+    , { id = Credit        , cost = 4, effects = [] }
+    , { id = BlackPowder   , cost = 4, effects = [ (OffensiveBonus 1, None) ] }
+    , { id = BookPress     , cost = 4, effects = [] }
+    , { id = Astronomy     , cost = 4, effects = [ (MilitaryBonusAtSea 1, None)] }
+    , { id = Nationalism   , cost = 5, effects = [] }
+    , { id = Bureaucracy   , cost = 5, effects = [] }
+    , { id = Science       , cost = 5, effects = [] }
+    , { id = Companies     , cost = 5, effects = [] }
+    ]
 
 
 technologyDisplayData : List TechnologyDetail
