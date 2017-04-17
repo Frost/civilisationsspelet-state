@@ -1,6 +1,6 @@
 module NaturalResourceDetail exposing (view)
 
-import Html exposing (Html, section, h1, h2, p, text, table, tbody, tr, td, thead, th)
+import Html exposing (Html, section, h1, h2, p, text, table, tbody, tr, td, thead, th, ul, li)
 import Html.Attributes exposing (style, colspan)
 import Types exposing (..)
 import Resources exposing (..)
@@ -19,9 +19,10 @@ resourceDetailView id =
     case resourceById id of
         Nothing ->
             section [] []
-        Just {name, produce} ->
+        Just {name, types, produce} ->
             section []
                 [ h1 [] [ text "Information: ", text name ]
+                , ul [] (List.map resourceTypeItem types)
                 , (outputTable produce)
                 -- , table [] [ tbody [] (compactOutputTable <| resourceOutput produce) ]
                 ]
@@ -72,3 +73,8 @@ resourceOutput produce =
 produceFromZone : List Produce -> ClimateZoneType -> Produce
 produceFromZone produce zoneType =
     List.foldr (\(zt, value) acc -> if zt == zoneType then (zt, value) else acc) (zoneType, 0.0) produce
+
+
+resourceTypeItem : ResourceType -> Html Msg
+resourceTypeItem resourceType =
+    li [] [ text <| resourceTypeName resourceType ]
