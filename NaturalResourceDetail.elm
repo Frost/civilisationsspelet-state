@@ -1,4 +1,4 @@
-module NaturalResourceDetail exposing (view)
+module NaturalResourceDetail exposing (view, resourceItemList)
 
 import Html exposing (Html, section, h1, h2, p, text, table, tbody, tr, td, thead, th, ul, li)
 import Html.Attributes exposing (style, colspan)
@@ -22,10 +22,14 @@ resourceDetailView id =
         Just {name, types, produce} ->
             section []
                 [ h1 [] [ text "Information: ", text name ]
-                , ul [] (List.map resourceTypeItem types)
+                , (resourceItemList types)
                 , (outputTable produce)
                 -- , table [] [ tbody [] (compactOutputTable <| resourceOutput produce) ]
                 ]
+
+resourceItemList : List ResourceType -> Html Msg
+resourceItemList types =
+    ul [] (List.map resourceTypeItem types)
 
 
 outputTable : List Produce -> Html Msg
