@@ -22,7 +22,7 @@ resourceDetailView id =
             section [] []
         Just resource ->
             section []
-                [ h1 [] [ text "Information: ", text resource.name ]
+                [ h1 [] [ text "Info: ", text resource.name ]
                 , (resourceItemList resource.types)
                 , (outputTable [resource] allResourceTypes)
                 ]

@@ -18,7 +18,7 @@ technologyDetailView id =
     case technologyDetailById id of
         Just (_, name, description) ->
           section []
-              [ h1 [] [ text "Information: ", text name ]
+              [ h1 [] [ text "Info: ", text name ]
               , p [] [ text description ]
               ]
         Nothing ->
