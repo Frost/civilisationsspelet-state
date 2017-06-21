@@ -128,4 +128,6 @@ type Msg = AddResource NaturalResource
          | RemoveTechnology Technology
          | DisplayTechnologyDetail (Maybe TechnologyId)
          | DisplayResourceDetail (Maybe ResourceId)
+         | LoadState String
+         | ClearState
          | Noop

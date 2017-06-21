@@ -10,7 +10,14 @@
     <body>
     </body>
     <script type="text/javascript">
-        var civilisationsspelet = Elm.Civilisationsspelet.fullscreen();
+        var app = Elm.Civilisationsspelet.fullscreen();
+        app.ports.store.subscribe(function(state) {
+            localStorage.setItem("civilisationsspelet", state);
+        });
+        var initialPlayer = localStorage.getItem("civilisationsspelet");
+        if (initialPlayer) {
+            app.ports.fetch.send(initialPlayer);
+        }
     </script>
 </html>
-</html>"
+</html>
