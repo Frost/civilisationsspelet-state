@@ -2,7 +2,7 @@ module NaturalResourceList exposing (view, addResource, removeResource)
 
 import Html exposing (Html, ul, li, text, section, h1, input, label)
 import Html.Events exposing (onClick, onMouseOver, onMouseOut)
-import Html.Attributes exposing (type_, checked, for)
+import Html.Attributes exposing (type_, checked, for, style)
 import Types exposing (Player, NaturalResource, Msg)
 import Resources exposing (resources)
 
@@ -20,7 +20,7 @@ removeResource resource player =
 
 view : Player -> Html Msg
 view player =
-    section []
+    section [ style [("flex-grow", "1")]]
         [ h1 [] [ text "Grödor" ]
         , ul [] (items player)
         ]

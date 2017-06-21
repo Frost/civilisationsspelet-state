@@ -1,6 +1,7 @@
 module TechnologyDetail exposing (view)
 
 import Html exposing (Html, section, h1, h2, p, text)
+import Html.Attributes exposing (style)
 import Types exposing (..)
 import Resources exposing (..)
 
@@ -17,9 +18,10 @@ technologyDetailView : TechnologyId -> Html Msg
 technologyDetailView id =
     case technologyDetailById id of
         Just (_, name, description) ->
-          section []
-              [ h1 [] [ text "Info: ", text name ]
-              , p [] [ text description ]
-              ]
+            section []
+                [ h1 [] [ text "Info: ", text name ]
+                , p [ style [("width", "20em")]] [ text description ]
+                ]
         Nothing ->
             text ""
+
