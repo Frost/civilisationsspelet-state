@@ -100,6 +100,11 @@ type alias Player = { resources : List NaturalResource
                     , technologies : List Technology
                     }
 
+type alias SerializablePlayer = { resources : List ResourceId
+                                , resourceTypes : List ResourceType
+                                , technologies : List TechnologyId
+                                }
+
 type alias Score = Int
 type alias CivilizationLevel = Int
 type alias MilitaryBonus = Int

@@ -269,10 +269,13 @@ resources =
       }
     ]
 
--- TODO: Implement this
 resourceById : ResourceId -> Maybe NaturalResource
 resourceById resourceId =
     List.head <| List.filter (\{id} -> id == resourceId) resources
+
+technologyById : TechnologyId -> Maybe Technology
+technologyById technologyId =
+    List.head <| List.filter (\{id} -> id == technologyId) technologies
 
 
 climateZoneTypes : List ClimateZoneType
@@ -430,3 +433,11 @@ resourceTypeName resourceType =
         Muscle       -> "Muskelkraft"
         Protein      -> "Protein"
         Textile      -> "Textil"
+
+technologiesById : List TechnologyId -> List Technology
+technologiesById ids =
+    List.filter (\{id} -> List.member id ids) technologies
+
+resourcesById : List ResourceId -> List NaturalResource
+resourcesById ids =
+    List.filter (\{id} -> List.member id ids) resources
