@@ -4,7 +4,7 @@ import Html exposing (Html, ul, li, text, section, h1, label, input)
 import Html.Events exposing (onClick, onMouseOver, onMouseOut)
 import Html.Attributes exposing (type_, checked, for, style)
 import Types exposing (Player, Technology, Msg, TechnologyId)
-import Resources exposing (technologies, technologyDisplayData)
+import Resources exposing (technologies, technologyDisplayData, technologyName)
 
 addTechnology : Technology -> Player -> Player
 addTechnology technology player =
