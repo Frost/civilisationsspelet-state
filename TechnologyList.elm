@@ -3,8 +3,9 @@ module TechnologyList exposing (view, addTechnology, removeTechnology)
 import Html exposing (Html, ul, li, text, section, h1, label, input, span)
 import Html.Events exposing (onClick, onMouseOver, onMouseOut)
 import Html.Attributes exposing (type_, checked, for, style, disabled)
-import Types exposing (Player, Technology, Msg, TechnologyId)
-import Resources exposing (technologies, technologyDisplayData, technologyName)
+import Types exposing (Model, Player, Technology, Msg, TechnologyId)
+import Resources exposing (technologies, technologyDisplayData, technologyName, technologyById)
+import Maybe exposing (andThen)
 
 addTechnology : Technology -> Player -> Player
 addTechnology technology player =
@@ -17,29 +18,30 @@ removeTechnology technology player =
     let newTechnologies = List.filter (\t -> t /= technology) player.technologies in
       {player | technologies = newTechnologies}
 
-view : Player -> Html Msg
-view player =
+view : Model -> Html Msg
+view model =
     section [style [("flex-grow", "1")]]
         [ h1 [] [ text "Teknologier (kostnad)" ]
-        , ul [] (items player)
+        , ul [] (items model)
         ]
 
 
-items : Player -> List (Html Msg)
-items player =
-    List.map (item player) technologies
+items : Model -> List (Html Msg)
+items model =
+    List.map (item model) technologies
 
 
-item : Player -> Technology -> Html Msg
-item player technology =
+item : Model -> Technology -> Html Msg
+item {player, displayTechnology} technology =
     let
         check = hasTechnology technology player
         isDisabled = technologyIsUnavailable technology player
+        backgroundColor = displayBackgroundColor technology displayTechnology
     in
       li []
           [ label [ onMouseOver (displayTechnologyDetail technology.id), onMouseOut displayNoTechnologyDetail ]
                 [ input [ type_ "checkbox", checked check, onClick (msg check technology), disabled isDisabled] []
-                , span [ style [("color", displayColor isDisabled)] ]
+                , span [ style [("color", displayColor isDisabled), ("background-color", backgroundColor)] ]
                     [ text <| technologyName technology.id
                     , text " ("
                     , text <| toString <| cost technology <| playerTechnologyIds player
@@ -99,8 +101,22 @@ missingRequirements : Player -> Technology -> List TechnologyId
 missingRequirements player {requirements} =
     List.filter (\id -> not <| List.member id <| playerTechnologyIds player) requirements
 
+
 displayColor : Bool -> String
 displayColor isDisabled =
     case isDisabled of
         True -> "gray"
         False -> "black"
+
+displayBackgroundColor : Technology -> Maybe TechnologyId -> String
+displayBackgroundColor technology  displayTechnology =
+    case displayTechnology |> andThen technologyById of
+        Nothing ->
+            ""
+        Just {requirements, provides} ->
+            if List.member technology.id requirements then
+                "lightyellow"
+            else if List.member technology.id provides then
+                "lightblue"
+            else
+                ""

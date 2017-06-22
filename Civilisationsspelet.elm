@@ -91,5 +91,5 @@ view model =
               , NaturalResourceDetail.view model.displayResource
               ]
         , NaturalResourceList.view model.player
-        , TechnologyList.view model.player
+        , TechnologyList.view model
         ]

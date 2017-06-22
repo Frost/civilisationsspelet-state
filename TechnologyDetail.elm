@@ -37,7 +37,7 @@ requirementsView {requirements} =
         0 ->
             text ""
         _ ->
-            div []
+            div [ style [("background-color", "lightyellow")]]
                 [ h2 [] [ text "Krav" ]
                 , technologyIdList requirements
                 ]
@@ -48,7 +48,7 @@ providesView {provides} =
         0 ->
             text ""
         _ ->
-            div []
+            div [ style [("background-color", "lightblue")]]
                 [ h2 [] [ text "Ger tillgång till" ]
                 , technologyIdList provides
                 ]
