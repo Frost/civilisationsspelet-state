@@ -23,19 +23,36 @@ technologyDetailView id =
                     section []
                         [ h1 [] [ text "Info: ", text name ]
                         , p [ style [("width", "20em")]] [ text description ]
-                        , div []
-                            [ h2 [] [ text "Krav" ]
-                            , technologyIdList technology.requirements
-                            ]
-                        , div []
-                            [ h2 [] [ text "Ger tillgång till" ]
-                            , technologyIdList technology.provides
-                            ]
+                        , requirementsView technology
+                        , providesView technology
                         ]
                 Nothing ->
                     text ""
         Nothing ->
             text ""
+
+requirementsView : Technology -> Html Msg
+requirementsView {requirements} =
+    case List.length requirements of
+        0 ->
+            text ""
+        _ ->
+            div []
+                [ h2 [] [ text "Krav" ]
+                , technologyIdList requirements
+                ]
+
+providesView : Technology -> Html Msg
+providesView {provides} =
+    case List.length provides of
+        0 ->
+            text ""
+        _ ->
+            div []
+                [ h2 [] [ text "Ger tillgång till" ]
+                , technologyIdList provides
+                ]
+
 
 technologyIdList : List TechnologyId -> Html Msg
 technologyIdList ids =
