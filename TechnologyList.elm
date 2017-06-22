@@ -20,7 +20,7 @@ removeTechnology technology player =
 view : Player -> Html Msg
 view player =
     section [style [("flex-grow", "1")]]
-        [ h1 [] [ text "Teknologier" ]
+        [ h1 [] [ text "Teknologier (kostnad)" ]
         , ul [] (items player)
         ]
 
@@ -37,6 +37,9 @@ item player technology =
           [ label [ onMouseOver (displayTechnologyDetail technology.id), onMouseOut displayNoTechnologyDetail ]
                 [ input [ type_ "checkbox", checked check, onClick (msg check technology)] []
                 , text <| technologyName technology.id
+                , text " ("
+                , text <| toString <| cost technology <| List.map (\{id} -> id) player.technologies
+                , text ")"
                 ]
           ]
 
