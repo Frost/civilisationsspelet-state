@@ -61,3 +61,22 @@ displayTechnologyDetail technologyId =
 displayNoTechnologyDetail : Msg
 displayNoTechnologyDetail =
     Types.DisplayTechnologyDetail Nothing
+
+-- The cost of a technology is its base cost plus 2 per missing requirement
+cost : Technology -> List TechnologyId -> Int
+cost technology knownTechnologies =
+    let missingTechnologies = List.filter (\id -> not <| List.member id knownTechnologies) technology.requirements in
+    technology.cost + 2 * (List.length missingTechnologies)
+
+-- A technology is available if it has no requirements or if at least one of its requirements is known
+technologyIsAvailable : Technology -> List TechnologyId -> Bool
+technologyIsAvailable technology knownTechnologies =
+    case List.length(technology.requirements) of
+        0 ->
+            True
+        _ ->
+            let knownRequirements = List.filter (\id -> List.member id knownTechnologies) technology.requirements in
+            List.length(knownRequirements) > 0
+
+technologyProvides : Technology -> TechnologyId -> Bool
+technologyProvides technology wantedTechnology = List.member wantedTechnology technology.provides
