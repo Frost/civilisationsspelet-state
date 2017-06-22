@@ -54,15 +54,6 @@ msg playerHasTechnology technology =
         Types.AddTechnology technology
 
 
-technologyName : TechnologyId -> String
-technologyName techId =
-    let filterById = (\(id, name, _) -> techId == id) in
-      case List.head <| List.filter filterById technologyDisplayData of
-          Just (_, name, _) ->
-              name
-          Nothing ->
-              ""
-
 displayTechnologyDetail : TechnologyId -> Msg
 displayTechnologyDetail technologyId =
     Types.DisplayTechnologyDetail (Just technologyId)

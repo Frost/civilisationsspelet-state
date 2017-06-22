@@ -321,30 +321,150 @@ climateZones = [ (TemperedDry, "Tempererat torrt")
 
 -- technologies : List Technology
 technologies =
-    [ { id = Metallurgy    , cost = 1, effects = [ (MilitaryBonus 1, None) ] }
-    , { id = Irrigation    , cost = 1, effects = [] }
-    , { id = Priesthood    , cost = 1, effects = [ (CivilizationBonus 1, None) ] }
-    , { id = Writing       , cost = 1, effects = [] }
-    , { id = Weaving       , cost = 1, effects = [ (EnableResourceType Textile, None) ] }
-    , { id = Wheel         , cost = 1, effects = [ (EnableResourceType Muscle, None) ] }
-    , { id = Stirrup       , cost = 2, effects = [ (MilitaryBonusOnLand 1, OneResourceNeeded [ Horse, Elephant, Camel ]) ] }
-    , { id = Drama         , cost = 2, effects = [ (CivilizationBonus 2, None) ] }
-    , { id = Law           , cost = 2, effects = [ (CivilizationBonus 1, None) ] }
-    , { id = Engineering   , cost = 2, effects = [ (DefensiveBonus 1, None) ]}
-    , { id = Machines      , cost = 3, effects = [] }
-    , { id = Litterature   , cost = 3, effects = [ (CivilizationBonus 1, None) ]}
-    , { id = Mathematics   , cost = 3, effects = [] }
-    , { id = PlantBreeding , cost = 3, effects = [] }
-    , { id = BookReligion  , cost = 3, effects = [] }
-    , { id = Philosophy    , cost = 4, effects = [ (CivilizationBonus 1, None) ] }
-    , { id = Credit        , cost = 4, effects = [] }
-    , { id = BlackPowder   , cost = 4, effects = [ (OffensiveBonus 1, None) ] }
-    , { id = BookPress     , cost = 4, effects = [] }
-    , { id = Astronomy     , cost = 4, effects = [ (MilitaryBonusAtSea 1, None)] }
-    , { id = Nationalism   , cost = 5, effects = [] }
-    , { id = Bureaucracy   , cost = 5, effects = [] }
-    , { id = Science       , cost = 5, effects = [] }
-    , { id = Companies     , cost = 5, effects = [] }
+    [ { id = Metallurgy
+      , cost = 1
+      , effects = [ (MilitaryBonus 1, None) ]
+      , requirements = []
+      , provides = [Engineering, Machines]
+      }
+    , { id = Irrigation
+      , cost = 1
+      , effects = []
+      , requirements = []
+      , provides = [Engineering]
+      }
+    , { id = Priesthood
+      , cost = 1
+      , effects = [ (CivilizationBonus 1, None) ]
+      , requirements = []
+      , provides = [Law]
+      }
+    , { id = Writing
+      , cost = 1
+      , effects = []
+      , requirements = []
+      , provides = [Drama, Law]
+      }
+    , { id = Weaving
+      , cost = 1
+      , effects = [ (EnableResourceType Textile, None) ]
+      , requirements = []
+      , provides = [Drama]
+      }
+    , { id = Wheel
+      , cost = 1
+      , effects = [ (EnableResourceType Muscle, None) ]
+      , requirements = []
+      , provides = [Stirrup, Machines]
+      }
+    , { id = Stirrup
+      , cost = 2
+      , effects = [ (MilitaryBonusOnLand 1, OneResourceNeeded [ Horse, Elephant, Camel ]) ]
+      , requirements = [Wheel]
+      , provides = []
+      }
+    , { id = Drama
+      , cost = 2
+      , effects = [ (CivilizationBonus 2, None) ]
+      , requirements = [Writing, Weaving]
+      , provides = []
+      }
+    , { id = Law
+      , cost = 2
+      , effects = [ (CivilizationBonus 1, None) ]
+      , requirements = [Writing, Priesthood]
+      , provides = []
+      }
+    , { id = Engineering
+      , cost = 2
+      , effects = [ (DefensiveBonus 1, None) ]
+      , requirements = [Irrigation, Metallurgy]
+      , provides = []
+      }
+    , { id = Machines
+      , cost = 3
+      , effects = []
+      , requirements = [Metallurgy, Wheel]
+      , provides = [BlackPowder, BookPress]
+      }
+    , { id = Litterature
+      , cost = 3
+      , effects = [ (CivilizationBonus 1, None) ]
+      , requirements = [Writing, Drama]
+      , provides = [BookPress, Nationalism]
+      }
+    , { id = Mathematics
+      , cost = 3
+      , effects = []
+      , requirements = [Writing]
+      , provides = [Astronomy, Science]
+      }
+    , { id = PlantBreeding
+      , cost = 3
+      , effects = []
+      , requirements = [Irrigation, Stirrup]
+      , provides = []
+      }
+    , { id = BookReligion
+      , cost = 3
+      , effects = []
+      , requirements = [Priesthood, Law]
+      , provides = [Philosophy]
+      }
+    , { id = Philosophy
+      , cost = 4
+      , effects = [ (CivilizationBonus 1, None) ]
+      , requirements = [Law, BookReligion]
+      , provides = []
+      }
+    , { id = Credit
+      , cost = 4
+      , effects = []
+      , requirements = [Law]
+      , provides = []
+      }
+    , { id = BlackPowder
+      , cost = 4
+      , effects = [ (OffensiveBonus 1, None) ]
+      , requirements = [BlackPowder, Engineering]
+      , provides = [Bureaucracy]
+      }
+    , { id = BookPress
+      , cost = 4
+      , effects = []
+      , requirements = [Litterature, Machines]
+      , provides = [Nationalism]
+      }
+    , { id = Astronomy
+      , cost = 4
+      , effects = [ (MilitaryBonusAtSea 1, None)]
+      , requirements = [Weaving, Mathematics]
+      , provides = [Science]
+      }
+    , { id = Nationalism
+      , cost = 5
+      , effects = []
+      , requirements = [BookPress, Litterature]
+      , provides = []
+      }
+    , { id = Bureaucracy
+      , cost = 5
+      , effects = []
+      , requirements = [BlackPowder, Credit]
+      , provides = []
+      }
+    , { id = Science
+      , cost = 5
+      , effects = []
+      , requirements = [Mathematics, Astronomy]
+      , provides = []
+      }
+    , { id = Companies
+      , cost = 5
+      , effects = []
+      , requirements = [Credit]
+      , provides = []
+      }
     ]
 
 
@@ -441,3 +561,12 @@ technologiesById ids =
 resourcesById : List ResourceId -> List NaturalResource
 resourcesById ids =
     List.filter (\{id} -> List.member id ids) resources
+
+technologyName : TechnologyId -> String
+technologyName techId =
+    let filterById = (\(id, name, _) -> techId == id) in
+      case List.head <| List.filter filterById technologyDisplayData of
+          Just (_, name, _) ->
+              name
+          Nothing ->
+              ""

@@ -116,6 +116,8 @@ type alias Model = { player : Player
 type alias Technology = { id : TechnologyId
                         , cost : Int
                         , effects : List TechnologyEffectCondition
+                        , requirements : List TechnologyId
+                        , provides : List TechnologyId
                         }
 
 
