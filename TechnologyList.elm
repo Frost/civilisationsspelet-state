@@ -1,4 +1,4 @@
-module TechnologyList exposing (view, addTechnology, removeTechnology)
+module TechnologyList exposing (view)
 
 import Html exposing (Html, ul, li, text, section, h1, label, input, span)
 import Html.Events exposing (onClick, onMouseOver, onMouseOut)
@@ -7,16 +7,6 @@ import Types exposing (Model, Player, Technology, Msg, TechnologyId)
 import Resources exposing (technologies, technologyDisplayData, technologyName, technologyById)
 import Maybe exposing (andThen)
 
-addTechnology : Technology -> Player -> Player
-addTechnology technology player =
-    let newTechnologies = player.technologies ++ [technology] in
-      {player | technologies = newTechnologies}
-
-
-removeTechnology : Technology -> Player -> Player
-removeTechnology technology player =
-    let newTechnologies = List.filter (\t -> t /= technology) player.technologies in
-      {player | technologies = newTechnologies}
 
 view : Model -> Html Msg
 view model =
@@ -25,6 +15,7 @@ view model =
         , ul [] (items model)
         ]
 
+-- Private functions
 
 items : Model -> List (Html Msg)
 items model =

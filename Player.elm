@@ -1,9 +1,8 @@
--- module Player exposing (newPlayer, updatePlayer, addResource, technologyEffects)
-module Player exposing (..)
+module Player exposing (newPlayer, addResource, removeResource, addTechnology, removeTechnology, technologyEffects)
 
 import Types exposing (..)
-import NaturalResourceList
-import TechnologyList
+
+-- Public functions
 
 newPlayer : Player
 newPlayer = { resources = []
@@ -11,27 +10,46 @@ newPlayer = { resources = []
             , technologies = []
             }
 
-updatePlayer : Player -> Player
-updatePlayer player =
-    { player | resourceTypes = resourceTypes player}
-
 addResource : NaturalResource -> Player -> Player
 addResource resource player =
-    updatePlayer <| NaturalResourceList.addResource resource player
+    let
+        newResources = player.resources ++ [resource]
+    in
+        updatePlayer {player | resources = newResources}
 
 removeResource : NaturalResource -> Player -> Player
 removeResource resource player =
-    updatePlayer <| NaturalResourceList.removeResource resource player
+    let
+        newResources = List.filter (\r -> r /= resource) player.resources
+    in
+        updatePlayer {player | resources = newResources}
 
 addTechnology : Technology -> Player -> Player
 addTechnology technology player =
-    updatePlayer <| TechnologyList.addTechnology technology player
+    let
+        newTechnologies = player.technologies ++ [technology]
+    in
+      updatePlayer {player | technologies = newTechnologies}
 
 removeTechnology : Technology -> Player -> Player
 removeTechnology technology player =
-    updatePlayer <| TechnologyList.removeTechnology technology player
+    let
+        newTechnologies = List.filter (\t -> t /= technology) player.technologies
+    in
+      updatePlayer {player | technologies = newTechnologies}
+
+technologyEffects : Player -> List TechnologyEffectCondition
+technologyEffects player =
+    player.technologies
+    |> List.concatMap (\{effects} -> effects)
+    |> List.filter (playerHasRequirementsForEffect player)
+
+
 -- Private functions
 
+updatePlayer : Player -> Player
+updatePlayer player =
+    { player | resourceTypes = resourceTypes player}
 
 baseTypes : List ResourceType
 baseTypes = [ Types.Protein, Types.Carbohydrate ]
@@ -45,13 +63,6 @@ resourceTypes player =
 resourceTypesFromTechnology : Player -> List ResourceType
 resourceTypesFromTechnology player =
     List.filterMap addResourceTypeByEffect <| technologyEffects player
-
-
-technologyEffects : Player -> List TechnologyEffectCondition
-technologyEffects player =
-    player.technologies
-    |> List.concatMap (\{effects} -> effects)
-    |> List.filter (playerHasRequirementsForEffect player)
 
 
 addResourceTypeByEffect : TechnologyEffectCondition -> Maybe ResourceType

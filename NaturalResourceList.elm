@@ -1,22 +1,10 @@
-module NaturalResourceList exposing (view, addResource, removeResource)
+module NaturalResourceList exposing (view)
 
 import Html exposing (Html, ul, li, text, section, h1, input, label)
 import Html.Events exposing (onClick, onMouseOver, onMouseOut)
 import Html.Attributes exposing (type_, checked, for, style)
 import Types exposing (Player, NaturalResource, Msg)
 import Resources exposing (resources)
-
-addResource : NaturalResource -> Player -> Player
-addResource resource player =
-    let newResources = player.resources ++ [resource] in
-      {player | resources = newResources}
-
-
-removeResource : NaturalResource -> Player -> Player
-removeResource resource player =
-    let newResources = List.filter (\r -> r /= resource) player.resources in
-      {player | resources = newResources}
-
 
 view : Player -> Html Msg
 view player =
