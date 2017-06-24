@@ -7,25 +7,25 @@ import Html.Attributes exposing (style, colspan)
 
 playerOutput : Player -> Html Msg
 playerOutput {resources, resourceTypes} =
-    outputTable resources resourceTypes
+    section []
+        [ h1 [] [ text "Produktion" ]
+        , outputTable resources resourceTypes
+        ]
 
 
 outputTable : List NaturalResource -> List ResourceType -> Html Msg
 outputTable resources resourceTypes =
-    section []
-        [ h1 [] [ text "Produktion" ]
-        ,  table []
-            [ thead []
-                  [ tr []
-                        [ th [ colspan 2] [ text "Klimatzon" ]
-                        , th [] [ text "Prod" ]
-                        ]
-                  ]
-            , tbody []
-                ( let produce = List.map (outputByClimateZone resources resourceTypes) climateZoneTypes
-                  in List.map climateZoneOutputView produce
-                )
-            ]
+    table []
+        [ thead []
+              [ tr []
+                    [ th [ colspan 2] [ text "Klimatzon" ]
+                    , th [] [ text "Prod" ]
+                    ]
+              ]
+        , tbody []
+            ( let produce = List.map (outputByClimateZone resources resourceTypes) climateZoneTypes
+              in List.map climateZoneOutputView produce
+            )
         ]
 
 -- Render output for a climate zone

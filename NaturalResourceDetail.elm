@@ -1,7 +1,6 @@
 module NaturalResourceDetail exposing (view, resourceItemList)
 
-import Html exposing (Html, section, h1, h2, p, text, table, tbody, tr, td, thead, th, ul, li)
-import Html.Attributes exposing (style, colspan)
+import Html exposing (Html, section, h1, h2, p, text, table, tbody, tr, td, thead, th, ul, li, div)
 import Types exposing (..)
 import Resources exposing (..)
 import ProductionOutput exposing (outputTable)
@@ -10,7 +9,7 @@ view : Maybe ResourceId -> Html Msg
 view resourceId =
     case resourceId of
         Nothing ->
-            section [] []
+            text ""
         Just id ->
             resourceDetailView id
 
@@ -23,13 +22,16 @@ resourceDetailView id =
         Just resource ->
             section []
                 [ h1 [] [ text "Info: ", text resource.name ]
-                , (resourceItemList resource.types)
-                , (outputTable [resource] allResourceTypes)
+                , outputTable [resource] allResourceTypes
+                , resourceItemList resource.types
                 ]
 
 resourceItemList : List ResourceType -> Html Msg
 resourceItemList types =
-    ul [] (List.map resourceTypeItem types)
+    div []
+        [ h1 [] [ text "Producerar" ]
+        , ul [] (List.map resourceTypeItem types)
+        ]
 
 
 resourceTypeItem : ResourceType -> Html Msg

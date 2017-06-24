@@ -9,7 +9,7 @@ view : Maybe TechnologyId -> Html Msg
 view techId =
     case techId of
         Nothing ->
-            section [] []
+            text ""
         Just id ->
             technologyDetailView id
 
