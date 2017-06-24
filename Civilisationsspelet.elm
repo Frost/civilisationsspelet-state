@@ -1,20 +1,17 @@
 port module Civilisationsspelet exposing (main)
 
-import Html exposing (program, Html, div, text, button)
-import Html.Attributes exposing (style)
+import Html exposing (program, Html, text, button, main_, menu)
 import Html.Events exposing (onClick)
 import Types exposing (..)
-import Resources exposing (resources)
-import ProductionOutput
 import NaturalResourceList
 import TechnologyList
 import Player
-import PlayerStatus
-import TechnologyDetail
-import NaturalResourceDetail
 import Encoders exposing (serializePlayer)
 import Decoders exposing (deserializePlayer)
 
+import PlayerBoard exposing (view)
+
+main : Program Never Model Msg
 main = program
        { init = init
        , update = update
@@ -79,17 +76,10 @@ subscriptions model =
 
 view : Model -> Html Msg
 view model =
-    div [ style [("width", "100%"), ("display", "flex"), ("flex-direction", "row") ] ]
-        [ div [style []]
-              [ button [ onClick ClearState ] [ text "Rensa / Börja om" ]
-              , div [ style [("display", "flex"), ("flex-direction", "row"), ("flex-grow", "1")] ]
-                    [ PlayerStatus.view model.player
-                    , ProductionOutput.playerOutput model.player
-                    ]
-
-              , TechnologyDetail.view model.displayTechnology
-              , NaturalResourceDetail.view model.displayResource
-              ]
-        , NaturalResourceList.view model.player
-        , TechnologyList.view model
+    main_ []
+        [ menu []
+            [ button [ onClick ClearState ] [ text "Rensa / Börja om" ]
+            ]
+        , PlayerBoard.view model
         ]
+

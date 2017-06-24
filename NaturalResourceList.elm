@@ -20,7 +20,7 @@ removeResource resource player =
 
 view : Player -> Html Msg
 view player =
-    section [ style [("flex-grow", "1")]]
+    section [ style [("flex-grow", "0")]]
         [ h1 [] [ text "Grödor" ]
         , ul [] (items player)
         ]

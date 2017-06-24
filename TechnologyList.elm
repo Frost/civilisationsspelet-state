@@ -20,7 +20,7 @@ removeTechnology technology player =
 
 view : Model -> Html Msg
 view model =
-    section [style [("flex-grow", "1")]]
+    section [style [("flex-grow", "0")]]
         [ h1 [] [ text "Teknologier (kostnad)" ]
         , ul [] (items model)
         ]
