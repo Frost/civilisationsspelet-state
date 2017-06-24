@@ -1,8 +1,6 @@
 module Encoders exposing (serializePlayer)
 
 import Json.Encode exposing (..)
-import Player
-import Resources
 import Types exposing (..)
 
 serializePlayer : Player -> String
