@@ -3,8 +3,6 @@ module Civilisationsspelet exposing (main)
 import Html exposing (program, Html, text, button, main_, menu)
 import Html.Events exposing (onClick)
 import Types exposing (..)
-import NaturalResourceList
-import TechnologyList
 import Player
 
 import Storage
@@ -37,16 +35,16 @@ update : Msg -> Model -> (Model, Cmd Msg)
 update msg model =
     case msg of
         AddResource resource ->
-            let updatedPlayer = Player.updatePlayer <| NaturalResourceList.addResource resource model.player in
+            let updatedPlayer = Player.addResource resource model.player in
             ({model | player = updatedPlayer}, Storage.saveState updatedPlayer)
         RemoveResource resource ->
-            let updatedPlayer = Player.updatePlayer <| NaturalResourceList.removeResource resource model.player in
+            let updatedPlayer = Player.removeResource resource model.player in
             ({model | player = updatedPlayer}, Storage.saveState updatedPlayer)
         AddTechnology technology ->
-            let updatedPlayer = Player.updatePlayer <| TechnologyList.addTechnology technology model.player in
+            let updatedPlayer = Player.addTechnology technology model.player in
             ({model | player = updatedPlayer }, Storage.saveState updatedPlayer)
         RemoveTechnology technology ->
-            let updatedPlayer = Player.updatePlayer <| TechnologyList.removeTechnology technology model.player in
+            let updatedPlayer = Player.removeTechnology technology model.player in
             ({model | player = updatedPlayer}, Storage.saveState updatedPlayer)
         DisplayTechnologyDetail technologyId ->
             ({model | displayTechnology = technologyId}, Cmd.none)
