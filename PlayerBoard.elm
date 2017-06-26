@@ -4,7 +4,6 @@ import Html exposing (Html, div, h1, text)
 import Html.Attributes exposing (style)
 import Types exposing (Model, Msg)
 
-import NaturalResourceDetail
 import NaturalResourceList
 import PlayerStatus
 import ProductionOutput
@@ -19,12 +18,11 @@ view model =
             [ NaturalResourceList.view model.player
             , TechnologyList.view model
             , div [style []]
-                [ ProductionOutput.playerOutput model.player
+                [ ProductionOutput.output model
                 , PlayerStatus.view model.player
                 ]
             , div [ style [("flex-grow", "0")]]
                 [ TechnologyDetail.view model.displayTechnology
-                , NaturalResourceDetail.view model.displayResource
                 ]
             , div [ style [("flex-grow", "1")]] []
             ]

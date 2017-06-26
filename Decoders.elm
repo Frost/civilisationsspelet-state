@@ -1,7 +1,6 @@
 module Decoders exposing (deserializePlayer)
 
 import Json.Decode exposing (..)
-import Json.Encode
 import Types exposing (..)
 import Resources exposing (technologiesById, resourcesById)
 

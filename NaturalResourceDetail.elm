@@ -22,14 +22,14 @@ resourceDetailView id =
         Just resource ->
             section []
                 [ h1 [] [ text "Info: ", text resource.name ]
-                , outputTable [resource] allResourceTypes
+                , outputTable [resource] allResourceTypes Nothing
                 , resourceItemList resource.types
                 ]
 
 resourceItemList : List ResourceType -> Html Msg
 resourceItemList types =
     div []
-        [ h1 [] [ text "Producerar" ]
+        [ h1 [] [ text "Produktion från" ]
         , ul [] (List.map resourceTypeItem types)
         ]
 

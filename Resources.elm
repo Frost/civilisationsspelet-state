@@ -319,7 +319,7 @@ climateZones = [ (TemperedDry, "Tempererat torrt")
                ]
 
 
--- technologies : List Technology
+technologies : List Technology
 technologies =
     [ { id = Metallurgy
       , cost = 1
@@ -426,7 +426,7 @@ technologies =
     , { id = BlackPowder
       , cost = 4
       , effects = [ (OffensiveBonus 1, None) ]
-      , requirements = [BlackPowder, Engineering]
+      , requirements = [Engineering, Machines]
       , provides = [Bureaucracy]
       }
     , { id = BookPress
@@ -570,3 +570,19 @@ technologyName techId =
               name
           Nothing ->
               ""
+
+climateZoneOutput : Maybe NaturalResource -> List Produce
+climateZoneOutput resource =
+    case resource of
+        Just resource ->
+            List.map (resourceOutputForZoneType resource) climateZoneTypes
+        Nothing ->
+            List.map (\t -> (t, 0.0)) climateZoneTypes
+
+resourceOutputForZoneType : NaturalResource -> ClimateZoneType -> Produce
+resourceOutputForZoneType resource zoneType =
+    case List.filter (\(t, v) -> t == zoneType) resource.produce |> List.head of
+        Just (zoneType, value) ->
+            (zoneType, value)
+        Nothing ->
+            (zoneType, 0.0)

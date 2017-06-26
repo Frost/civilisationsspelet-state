@@ -1,4 +1,4 @@
-module Player exposing (newPlayer, addResource, removeResource, addTechnology, removeTechnology, technologyEffects)
+module Player exposing (newPlayer, addResource, removeResource, addTechnology, removeTechnology, technologyEffects, resourceTypes)
 
 import Types exposing (..)
 
@@ -44,6 +44,10 @@ technologyEffects player =
     |> List.concatMap (\{effects} -> effects)
     |> List.filter (playerHasRequirementsForEffect player)
 
+resourceTypes : Player -> List ResourceType
+resourceTypes player =
+    baseTypes ++ resourceTypesFromTechnology player
+
 
 -- Private functions
 
@@ -53,11 +57,6 @@ updatePlayer player =
 
 baseTypes : List ResourceType
 baseTypes = [ Types.Protein, Types.Carbohydrate ]
-
-
-resourceTypes : Player -> List ResourceType
-resourceTypes player =
-    baseTypes ++ resourceTypesFromTechnology player
 
 
 resourceTypesFromTechnology : Player -> List ResourceType

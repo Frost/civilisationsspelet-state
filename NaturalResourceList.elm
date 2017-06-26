@@ -21,8 +21,8 @@ items player =
 item : Player -> NaturalResource -> Html Msg
 item player resource =
   let check = hasResource resource player in
-    li []
-      [ label [ onMouseOver (displayResourceDetail resource.id), onMouseOut (displayNoResourceDetail) ]
+    li [ style [("width", "100%")] ]
+      [ label [ style [("width", "100%"), ("height", "100%")], onMouseOver (displayResourceDetail resource.id), onMouseOut (displayNoResourceDetail) ]
         [ input [ type_ "checkbox", checked check, onClick (msg check resource) ] []
         , text resource.name
         ]
